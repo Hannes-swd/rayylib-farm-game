@@ -1,4 +1,23 @@
 //globals.h
 #pragma once
 
+
 extern int map[20][25];
+
+//spiler informationen
+extern int spielerX;
+extern int spielerY;
+extern int spielerLeben;
+extern int Geld;
+extern int tag;
+
+//blöcke
+constexpr int TILE_COUNT = 2;
+struct Tile {
+    bool begangbar;
+    bool hackbar;
+    bool bepflanzbar;
+    bool wasserbar;
+};
+
+extern Tile tiles[TILE_COUNT];

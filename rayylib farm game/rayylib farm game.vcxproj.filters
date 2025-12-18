@@ -24,12 +24,18 @@
     <ClCompile Include="MapRender.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
+    <ClCompile Include="Moovment.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="globals.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
     <ClInclude Include="MapRender.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="Moovment.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
   </ItemGroup>

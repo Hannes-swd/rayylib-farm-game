@@ -4,6 +4,7 @@
 //dateien
 #include "globals.h"
 #include "MapRender.h"
+#include "Moovment.h"
 
 int main(void)
 {
@@ -26,7 +27,7 @@ int main(void)
 
         BeginDrawing();
         ClearBackground(RAYWHITE);
-
+        HandleMovement();
         DrawMap(screenWidth, screenHeight);
         EndDrawing();
     }

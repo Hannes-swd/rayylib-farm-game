@@ -1,6 +1,7 @@
 //MapRender.cpp	
 #include "raylib.h"
 #include "globals.h"
+#include "Moovment.h"
 
 void DrawMap(int screenWidth, int screenHeight)
 {
@@ -23,14 +24,21 @@ void DrawMap(int screenWidth, int screenHeight)
 
             if (map[y][x] == 0)
             {
-                DrawRectangle(posX, posY, tileSize, tileSize, LIGHTGRAY);
+                DrawRectangle(posX, posY, tileSize, tileSize, LIME);
                 
             }
-            if (map[y][x] == 1)
+            else if (map[y][x] == 1)
+            {
+                DrawRectangle(posX, posY, tileSize, tileSize, LIGHTGRAY);
+            }
+            else
             {
                 DrawRectangle(posX, posY, tileSize, tileSize, ORANGE);
             }
         }
     }
+
+    //spieler
+	DrawCircle(offsetX + (spielerX * tileSize) + tileSize / 2, offsetY + (spielerY * tileSize) + tileSize / 2, tileSize / 3, BLUE);
 
 }

@@ -1,7 +1,13 @@
 //globals.cpp
 
+#include "globals.h"
 
-extern int  map[20][25] =
+//LEGENDE
+/*
+	0 = Grass (walkable)
+	1 = Stone (not walkable)
+*/
+int  map[20][25] =
 {
 	{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
 	{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
@@ -27,4 +33,17 @@ extern int  map[20][25] =
 	{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
 	{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
 
+};
+
+//spiler informationen
+int spielerX = 1, spielerY = 1;
+int spielerLeben = 100;
+int Geld = 50;
+int tag = 1;
+
+//blöcke
+
+Tile tiles[TILE_COUNT] = {
+	{ true,  false, false, false}, // Grass
+	{ false, false, false, false}  // Stone
 };

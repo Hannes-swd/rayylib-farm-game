@@ -1,26 +1,36 @@
-﻿
+﻿//Main.cpp
 #include "raylib.h"
+
+//dateien
+#include "globals.h"
+#include "MapRender.h"
+
 int main(void)
 {
-    const int screenWidth = 800;
-    const int screenHeight = 450;
+    int screenWidth = 800;
+    int screenHeight = 450;
 
-    InitWindow(screenWidth, screenHeight, "raylib [core] example - basic window");
+    
+    SetConfigFlags(FLAG_WINDOW_RESIZABLE);
+    InitWindow(screenWidth, screenHeight, "Farm Game");
+
+    SetWindowMinSize(400, 300);
 
     SetTargetFPS(60);
 
     while (!WindowShouldClose())
     {
-        BeginDrawing();
+        //fenster
+        screenWidth = GetScreenWidth();
+        screenHeight = GetScreenHeight();
 
+        BeginDrawing();
         ClearBackground(RAYWHITE);
 
-        DrawText("Congrats! You created your first window!", 190, 200, 20, LIGHTGRAY);
-
+        DrawMap(screenWidth, screenHeight);
         EndDrawing();
     }
 
     CloseWindow();
-
     return 0;
 }

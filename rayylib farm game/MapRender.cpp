@@ -5,6 +5,20 @@
 
 void DrawMap(int screenWidth, int screenHeight)
 {
+    //Bilder
+	Texture2D grassTexture = LoadTexture("resources/grass.png");
+    Texture2D stoneTexture = LoadTexture("resources/stone.png");
+
+	//bilder laden
+    if (grassTexture.id == 0)
+    {
+        CloseWindow();
+	}
+    if (grassTexture.id == 0)
+    {
+        CloseWindow();
+    }
+    
     //map einstellungen
     int tileWidth = screenWidth / 25;
     int tileHeight = screenHeight / 20;
@@ -24,12 +38,27 @@ void DrawMap(int screenWidth, int screenHeight)
 
             if (map[y][x] == 0)
             {
-                DrawRectangle(posX, posY, tileSize, tileSize, LIME);
-                
+                //DrawRectangle(posX, posY, tileSize, tileSize, LIME);
+                DrawTexturePro(
+                    grassTexture,
+                    { 0.0f, 0.0f, (float)grassTexture.width, (float)-grassTexture.height },
+                    { (float)posX, (float)posY, (float)tileSize, (float)tileSize },
+                    { 0.0f, 0.0f },
+                    0.0f,
+                    WHITE
+                );
             }
             else if (map[y][x] == 1)
             {
                 DrawRectangle(posX, posY, tileSize, tileSize, LIGHTGRAY);
+                DrawTexturePro(
+                    stoneTexture,
+                    { 0.0f, 0.0f, (float)stoneTexture.width, (float)-stoneTexture.height },
+                    { (float)posX, (float)posY, (float)tileSize, (float)tileSize },
+                    { 0.0f, 0.0f },
+                    0.0f,
+                    WHITE
+				);
             }
             else
             {

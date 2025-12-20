@@ -10,6 +10,7 @@ extern int spielerY;
 extern int spielerLeben;
 extern int Geld;
 extern int tag;
+extern int richtung; // 0 = vorne, 1 = hinten
 
 //blöcke
 constexpr int TILE_COUNT = 2;

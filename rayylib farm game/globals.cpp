@@ -40,6 +40,7 @@ int spielerX = 1, spielerY = 1;
 int spielerLeben = 100;
 int Geld = 50;
 int tag = 1;
+int richtung = 0; // 0 = vorne, 1 = hinten, 2 = links, 3 = rechts
 
 //blöcke
 

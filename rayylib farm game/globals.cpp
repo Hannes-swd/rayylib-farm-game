@@ -72,7 +72,7 @@ value (anzahl)
 ItemDef itemDB[] = {
 	{ 1, 1, false, false, true, 0 },   // Hacke
 	{ 2, 1, false, false, true, 0 },   // Spitzhacke
-	{ 3, 99, true, false, false, 5 }   // Stein
+	{ 3, 5, true, false, false, 5 }   // Stein
 };
 
 int itemDBSize = sizeof(itemDB) / sizeof(ItemDef);
@@ -86,7 +86,7 @@ void AddItem(int id, int amount) {
 }
 void RemoveItem(int id, int amount) {
 	int index = id - 1;
-	if (index < 0 || index >= itemDBSize) return; // Sicherheit
+	if (index < 0 || index >= itemDBSize) return; 
 
 	itemDB[index].value -= amount;
 	if (itemDB[index].value < 0)

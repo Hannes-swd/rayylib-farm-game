@@ -3,6 +3,9 @@
 #include "raylib.h"
 #include "globals.h"
 #include "Textures.h"
+#include "ItemUse.h"
+#pragma once
+
 
 constexpr int MAP_W = 25;
 constexpr int MAP_H = 20;
@@ -61,34 +64,33 @@ void markierungMaus()
         WHITE
     );
 
-    //bearbeiten
-	if (IsMouseButtonDown
-    (MOUSE_BUTTON_LEFT)) {
-		if (AktuellesItem == 1) //hacke 
-        {
-            if (map[ky][kx] == 0) 
-            {
+    if (IsMouseButtonDown(MOUSE_BUTTON_LEFT)) {
+        if (AktuellesItem == ITEM_hacke) {
+            if (map[ky][kx] == 0) {
                 map[ky][kx] = 2;
-			}
-        }
-        if (AktuellesItem == 2) //spitzhacke
-        {
-            if (map[ky][kx] == 1) 
-            {
-                map[ky][kx] = 0;
-				AddItem(ITEM_Stein, 1);
+                int that = 1 + rand() % 4;
+                if (that == 1) AddItem(ITEM_Stein, 1);
             }
         }
-        if (AktuellesItem == 3) //stein
-        {
-            if (map[ky][kx] == 0 || map[ky][kx] == 2)
-            {
-                map[ky][kx] = 1;
-				RemoveItem(ITEM_Stein, 1);
+        else if (AktuellesItem == ITEM_spitzhacke) {
+            if (map[ky][kx] == 1) {
+                int index = ITEM_Stein - 1;
+                if (itemDB[index].value < itemDB[index].maxStack) {
+                    map[ky][kx] = 0;
+                    AddItem(ITEM_Stein, 1);
+                }
+                // leer
             }
         }
-        
-	}
-    
+        else if (AktuellesItem == ITEM_Stein) {
+            int index = ITEM_Stein - 1;
+            if (itemDB[index].value > 0) {
+                if (map[ky][kx] == 0 || map[ky][kx] == 2) {
+                    map[ky][kx] = 1;
+                    RemoveItem(ITEM_Stein, 1);
+                }
+            }
+        }
 
+    }
 }

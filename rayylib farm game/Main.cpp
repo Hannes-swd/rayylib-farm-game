@@ -25,6 +25,8 @@ int main()
         ClearBackground(RAYWHITE);
 
         DrawMap(GetScreenWidth(), GetScreenHeight());
+
+		//plazieren/entfernen/bearbeiten von blöcken
         markierungMaus();
 
         DrawUI();

@@ -3,19 +3,20 @@
 #include "raylib.h"
 #include "globals.h"
 #include "Textures.h"
+#include <cstdlib>
+
 
 void inventarMangage()
 {
-    if (IsKeyPressed(KEY_T)) {
-        if (AktuellesItem == 1) {
-            AktuellesItem = 2;
-        }
-        else if (AktuellesItem == 2) {
-            AktuellesItem = 3;
-		}
-        else if (AktuellesItem == 3)
-        {
-            AktuellesItem = 1;
-        }
+	float wheel = GetMouseWheelMove();
+    if (wheel > 0) {
+        AktuellesItem--;
+        if (AktuellesItem < 1) AktuellesItem = 3; // wrap nach oben
+    }
+    else if (wheel < 0) {
+        AktuellesItem++;
+        if (AktuellesItem > 3) AktuellesItem = 1; // wrap nach unten
     }
 }
+
+

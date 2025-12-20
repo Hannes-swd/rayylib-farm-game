@@ -52,13 +52,45 @@ void DrawMap(int screenWidth, int screenHeight)
             else if (map[y][x] == 2) {
                 DrawTexturePro(
                     dirtTexture,
-                    { 0,0,(float)stoneTexture.width,(float)stoneTexture.height },
+                    { 0,0,(float)dirtTexture.width,(float)dirtTexture.height },
                     { (float)posX,(float)posY,(float)tileSize,(float)tileSize },
                     { 0,0 },
                     0,
                     WHITE
                 );
 			}
+            // 3 = karotte1
+            else if (map[y][x] == 3) {
+                DrawTexturePro(
+                    Karotte1Texture,
+                    { 0,0,(float)Karotte1Texture.width,(float)Karotte1Texture.height },
+                    { (float)posX,(float)posY,(float)tileSize,(float)tileSize },
+                    { 0,0 },
+                    0,
+                    WHITE
+                );
+			}
+            else if (map[y][x] == 4) {
+                DrawTexturePro(
+                    Karotte2Texture,
+                    { 0,0,(float)Karotte2Texture.width,(float)Karotte2Texture.height },
+                    { (float)posX,(float)posY,(float)tileSize,(float)tileSize },
+                    { 0,0 },
+                    0,
+                    WHITE
+                );
+            }
+            else if (map[y][x] == 5) {
+                DrawTexturePro(
+                    Karotte3Texture,
+                    { 0,0,(float)Karotte3Texture.width,(float)Karotte3Texture.height },
+                    { (float)posX,(float)posY,(float)tileSize,(float)tileSize },
+                    { 0,0 },
+                    0,
+                    WHITE
+                );
+			}
+
             //fehler
             else {
                 DrawRectangle(posX, posY, tileSize, tileSize, MAGENTA);
@@ -99,7 +131,5 @@ void DevAnsicht(int screenWidth, int screenHeight)
         (mausY - (screenHeight - (MAP_H * (screenWidth / MAP_W < screenHeight / MAP_H ? screenWidth / MAP_W : screenHeight / MAP_H))) / 2) / (screenWidth / MAP_W < screenHeight / MAP_H ? screenWidth / MAP_W : screenHeight / MAP_H)), 10, 140, 20, BLACK);
     DrawText(TextFormat("MArkierter Block: %d", map[(mausY - (screenHeight - (MAP_H * (screenWidth / MAP_W < screenHeight / MAP_H ? screenWidth / MAP_W : screenHeight / MAP_H))) / 2) / (screenWidth / MAP_W < screenHeight / MAP_H ? screenWidth / MAP_W : screenHeight / MAP_H)]
 		[(mausX - (screenWidth - (MAP_W * (screenWidth / MAP_W < screenHeight / MAP_H ? screenWidth / MAP_W : screenHeight / MAP_H))) / 2) / (screenWidth / MAP_W < screenHeight / MAP_H ? screenWidth / MAP_W : screenHeight / MAP_H)]), 10, 170, 20, BLACK);
-
-
 
 }

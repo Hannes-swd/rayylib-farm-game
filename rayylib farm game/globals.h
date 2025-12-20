@@ -13,7 +13,7 @@ extern int tag;
 extern int richtung; // 0 = vorne, 1 = hinten, 2 = links, 3 = rechts
 
 // Blöcke
-constexpr int TILE_COUNT = 3;
+constexpr int TILE_COUNT = 4;
 struct Tile {
     bool begangbar;
     bool hackbar;
@@ -34,7 +34,8 @@ extern int AktuellerSlot;
 typedef enum {
     ITEM_hacke = 1,
     ITEM_spitzhacke = 2,
-    ITEM_Stein = 3
+    ITEM_Stein = 3,
+	ITEM_Karrotte = 4
 } ItemID;
 
 // Funktionen di braucht
@@ -50,9 +51,9 @@ constexpr int INVENTAR_ROWS = 4;
 constexpr int INVENTAR_COLS = 5;
 constexpr int INVENTAR_SLOTS = INVENTAR_ROWS * INVENTAR_COLS;
 
-extern int inventar[INVENTAR_SLOTS];       // item id slot
-extern int inventarMenge[INVENTAR_SLOTS];  // azahl slots
-void InitInventar(); // Inventar machen
+extern int inventar[INVENTAR_SLOTS];
+extern int inventarMenge[INVENTAR_SLOTS]; 
+void InitInventar(); 
 
-extern int dragSlot; //welcher slot gezogen
-extern bool isDragging; //ziet
+extern int dragSlot; 
+extern bool isDragging; 

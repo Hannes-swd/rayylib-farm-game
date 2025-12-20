@@ -41,7 +41,7 @@ void openinventar()
                 float sx = invX + padding + x * (slotSize + slotSpacing);
                 float sy = invY + padding + y * (slotSize + slotSpacing) + extraGap;
 
-                // Slot-Hintergrund - KEINE Markierung im geöffneten Inventar
+                // Slot-Hintergrund
                 DrawTexturePro(
                     InventarSlot,
                     { 0,0,(float)InventarSlot.width,(float)InventarSlot.height },
@@ -57,18 +57,18 @@ void openinventar()
                     case ITEM_hacke: itemTex = HackeItem; break;
                     case ITEM_spitzhacke: itemTex = spitzhackeItem; break;
                     case ITEM_Stein: itemTex = steinItem; break;
+					case ITEM_Karrotte: itemTex = KarotteItem; break;
                     }
                     DrawTexturePro(itemTex,
                         { 0,0,(float)itemTex.width,(float)itemTex.height },
                         { sx,sy,slotSize,slotSize },
                         { 0,0 }, 0, WHITE);
 
-                    // Menge anzeigen wenn größer als 1
+                    // Menge anzeigen
                     if (inventarMenge[slotIndex] > 1) {
                         // Hintergrund für bessere Lesbarkeit
                         DrawRectangle(sx + slotSize - 25, sy + slotSize - 25, 25, 25, Fade(WHITE, 0.7f));
 
-                        // Text zentrieren
                         const char* countText = TextFormat("%d", inventarMenge[slotIndex]);
                         int textWidth = MeasureText(countText, 20);
                         DrawText(countText,
@@ -78,7 +78,7 @@ void openinventar()
                     }
                 }
 
-                // Drag & Drop starten
+                // Drag & Drop 
                 Vector2 mouse = GetMousePosition();
                 Rectangle slotRect = { sx, sy, slotSize, slotSize };
 
@@ -109,7 +109,7 @@ void openinventar()
             }
         }
 
-        // Wenn Maus losgelassen wird außerhalb aller Slots, Drop abbrechen
+        
         if (isDragging && IsMouseButtonReleased(MOUSE_BUTTON_LEFT)) {
             Rectangle invRect = { invX, invY, invWidth, invHeight };
             Vector2 mouse = GetMousePosition();
@@ -120,7 +120,7 @@ void openinventar()
             }
         }
 
-        // Ziehen darstellen
+        // Ziehen 
         if (isDragging && dragSlot >= 0) {
             int itemID = inventar[dragSlot];
             if (itemID > 0) {
@@ -129,6 +129,7 @@ void openinventar()
                 case ITEM_hacke: itemTex = HackeItem; break;
                 case ITEM_spitzhacke: itemTex = spitzhackeItem; break;
                 case ITEM_Stein: itemTex = steinItem; break;
+				case ITEM_Karrotte: itemTex = KarotteItem; break;
                 }
                 Vector2 mouse = GetMousePosition();
                 DrawTexturePro(itemTex,
@@ -136,7 +137,6 @@ void openinventar()
                     { mouse.x - slotSize / 2, mouse.y - slotSize / 2, slotSize, slotSize },
                     { 0,0 }, 0, WHITE);
 
-                // Menge beim Ziehen anzeigen
                 if (inventarMenge[dragSlot] > 1) {
                     DrawText(TextFormat("%d", inventarMenge[dragSlot]),
                         mouse.x + 10,
@@ -147,14 +147,14 @@ void openinventar()
         }
     }
     else {
-        // Hotbar - nur die untersten 5 Slots anzeigen
+        // Hotbar
         const int sidebarSlots = 5;
         float paddingX = 20.0f;
         float paddingY = 20.0f;
         float slotSize = GetScreenHeight() * 0.08f;
         float spacing = slotSize * 0.1f;
 
-        // Hotbar-Slots berechnen (letzte Reihe des Inventars)
+        // HotbarSlots berechnen 
         int hotbarStartIndex = INVENTAR_SLOTS - sidebarSlots;
 
         for (int i = 0; i < sidebarSlots; i++) {
@@ -162,8 +162,8 @@ void openinventar()
             float sx = paddingX;
             float sy = GetScreenHeight() - paddingY - slotSize - i * (slotSize + spacing);
 
-            // Aktuellen Slot markieren (nur wenn Inventar geschlossen)
-            bool isCurrentSlot = (AktuellerSlot == i + 1); // AktuellerSlot ist 1-basiert
+            // Aktuellen Slot markieren
+            bool isCurrentSlot = (AktuellerSlot == i + 1);
 
             DrawTexturePro(
                 isCurrentSlot ? AusgewaelterSlot : InventarSlot,
@@ -179,6 +179,7 @@ void openinventar()
                 case ITEM_hacke: itemTex = HackeItem; break;
                 case ITEM_spitzhacke: itemTex = spitzhackeItem; break;
                 case ITEM_Stein: itemTex = steinItem; break;
+				case ITEM_Karrotte: itemTex = KarotteItem; break;
                 }
                 DrawTexturePro(itemTex,
                     { 0,0,(float)itemTex.width,(float)itemTex.height },
@@ -187,10 +188,9 @@ void openinventar()
 
                 // Menge anzeigen
                 if (inventarMenge[slotIndex] > 1) {
-                    // Hintergrund für bessere Lesbarkeit
+
                     DrawRectangle(sx + slotSize - 25, sy + slotSize - 25, 25, 25, Fade(WHITE, 0.7f));
 
-                    // Text zentrieren
                     const char* countText = TextFormat("%d", inventarMenge[slotIndex]);
                     int textWidth = MeasureText(countText, 20);
                     DrawText(countText,

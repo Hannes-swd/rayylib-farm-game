@@ -16,7 +16,10 @@ int richtung = 0; // 0 = vorne, 1 = hinten, 2 = links, 3 = rechts
 Tile tiles[TILE_COUNT] = {
     { true,  false, false, false}, // 0: Grass
     { false, false, false, false}, // 1: Stone
-    { true,  true,  false, false}  // 2: Dirt
+    { true,  true,  false, false},  // 2: Dirt
+	{ true, false, false, true } // 3: karotte
+
+
 };
 
 // Mausposition
@@ -39,6 +42,9 @@ int GetMaxStack(int id) {
     case ITEM_hacke: return 1;
     case ITEM_spitzhacke: return 1;
     case ITEM_Stein: return 99;
+
+    //Pflanzen
+	case ITEM_Karrotte: return 99;
     default: return 1;
     }
 }

@@ -92,5 +92,14 @@ void markierungMaus()
                 }
             }
         }
+        else if (AktuellesItem == ITEM_Karrotte) {
+            int karrotteCount = GetItemCount(ITEM_Karrotte);
+            if (karrotteCount > 0) {
+                if (map[ky][kx] == 2) {
+                    map[ky][kx] = 3;
+                    RemoveItem(ITEM_Karrotte, 1);
+                }
+            }
+		}
     }
 }

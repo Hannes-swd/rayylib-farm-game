@@ -1,67 +1,51 @@
-// maus.cpp
+//maus.cpp
 #include "raylib.h"
 #include "globals.h"
-#include "Moovment.h"
-//bilder laden
+#include "Textures.h"
 
-void Mausposition() {
-	Vector2 mausPosition = GetMousePosition();
-	mausX = static_cast<int>(mausPosition.x);
-	mausY = static_cast<int>(mausPosition.y);
-	
+constexpr int MAP_W = 25;
+constexpr int MAP_H = 20;
+
+void Mausposition()
+{
+    Vector2 m = GetMousePosition();
+    mausX = (int)m.x;
+    mausY = (int)m.y;
 }
+
 void markierungMaus()
 {
-    int screenWidth = GetScreenWidth();
-    int screenHeight = GetScreenHeight();
+    int sw = GetScreenWidth();
+    int sh = GetScreenHeight();
 
-    int tileWidth = screenWidth / 25;
-    int tileHeight = screenHeight / 20;
-    int tileSize = (tileWidth < tileHeight) ? tileWidth : tileHeight;
-
-    int offsetX = (screenWidth - (25 * tileSize)) / 2;
-    int offsetY = (screenHeight - (20 * tileSize)) / 2;
-
-    Vector2 mouse = GetMousePosition();
+    int tileSize = (sw / MAP_W < sh / MAP_H) ? sw / MAP_W : sh / MAP_H;
+    int offsetX = (sw - MAP_W * tileSize) / 2;
+    int offsetY = (sh - MAP_H * tileSize) / 2;
 
     Rectangle mapRect = {
         (float)offsetX,
         (float)offsetY,
-        (float)(25 * tileSize),
-        (float)(20 * tileSize)
+        (float)(MAP_W * tileSize),
+        (float)(MAP_H * tileSize)
     };
 
-    // Wenn Maus nicht über der Map  Text anzeigen und raus
+    Vector2 mouse = GetMousePosition();
+
     if (!CheckCollisionPointRec(mouse, mapRect))
-    {
-        DrawText("Maus nicht auf der Map", 10, 10, 20, DARKGRAY);
         return;
-    }
 
-    int kachelX = (mouse.x - offsetX) / tileSize;
-    int kachelY = (mouse.y - offsetY) / tileSize;
+    int kx = (mouse.x - offsetX) / tileSize;
+    int ky = (mouse.y - offsetY) / tileSize;
 
-    // Hover-Rand zeichnen
-    DrawRectangleLines(
-        offsetX + kachelX * tileSize,
-        offsetY + kachelY * tileSize,
-        tileSize,
-        tileSize,
-        RED
-    );
+    if (kx < 0 || kx >= MAP_W || ky < 0 || ky >= MAP_H)
+        return;
 
-    // Tile-Typ bestimmen
-    int tileType = map[kachelY][kachelX];
-    const char* tileName =
-        (tileType == 0) ? "Grass" :
-        (tileType == 1) ? "Stone" : "Unknown";
-
-    // Info oben anzeigen
-    DrawText(
-        TextFormat("Tile: X=%d Y=%d | Typ: %s", kachelX, kachelY, tileName),
-        10, 10,
-        20,
-        BLACK
+    DrawTexturePro(
+        GridHover,
+        { 0,0,(float)GridHover.width,(float)GridHover.height },
+        { (float)(offsetX + kx * tileSize),(float)(offsetY + ky * tileSize),(float)tileSize,(float)tileSize },
+        { 0,0 },
+        0,
+        WHITE
     );
 }
-

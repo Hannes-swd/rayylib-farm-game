@@ -1,45 +1,34 @@
-﻿//Main.cpp
-#include "raylib.h"
-
-//dateien
+﻿#include "raylib.h"
 #include "globals.h"
 #include "MapRender.h"
 #include "Moovment.h"
 #include "maus.h"
+#include "Textures.h"
 
-int main(void)
+int main()
 {
-    int screenWidth = 800;
-    int screenHeight = 450;
-
-    
     SetConfigFlags(FLAG_WINDOW_RESIZABLE);
-    InitWindow(screenWidth, screenHeight, "Farm Game");
-
-    SetWindowMinSize(400, 300);
+    InitWindow(800, 450, "Farm Game");
 
     SetTargetFPS(60);
 
+    LoadAllTextures();
+
     while (!WindowShouldClose())
     {
-        //fenster
-        screenWidth = GetScreenWidth();
-        screenHeight = GetScreenHeight();
-
-        BeginDrawing();
-		//hintergrund
-        ClearBackground(RAYWHITE);
-        //map
-        DrawMap(screenWidth, screenHeight);
-        
-		//spieler bewegung
         HandleMovement();
         Mausposition();
+
+        BeginDrawing();
+        ClearBackground(RAYWHITE);
+
+        DrawMap(GetScreenWidth(), GetScreenHeight());
         markierungMaus();
-        
+
         EndDrawing();
     }
 
+    UnloadAllTextures();
     CloseWindow();
     return 0;
 }

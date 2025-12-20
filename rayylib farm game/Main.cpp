@@ -4,6 +4,7 @@
 #include "Moovment.h"
 #include "maus.h"
 #include "Textures.h"
+#include "Ui.h"
 
 int main()
 {
@@ -24,6 +25,10 @@ int main()
 
         DrawMap(GetScreenWidth(), GetScreenHeight());
         markierungMaus();
+
+        DrawUI();
+
+		//DevAnsicht(GetScreenWidth(), GetScreenHeight());
 
         EndDrawing();
     }

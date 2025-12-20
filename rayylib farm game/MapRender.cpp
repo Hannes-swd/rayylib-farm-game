@@ -23,16 +23,46 @@ void DrawMap(int screenWidth, int screenHeight)
             int posX = offsetX + x * tileSize;
             int posY = offsetY + y * tileSize;
 
-            Texture2D tex = (map[y][x] == 0) ? grassTexture : stoneTexture;
+            
+            //zeichne  blöcke
 
-            DrawTexturePro(
-                tex,
-                { 0,0,(float)tex.width,(float)tex.height },
-                { (float)posX,(float)posY,(float)tileSize,(float)tileSize },
-                { 0,0 },
-                0,
-                WHITE
-            );
+			// 0 = grass
+            if (map[y][x] == 0) {
+                DrawTexturePro(
+                    grassTexture,
+                    { 0,0,(float)grassTexture.width,(float)grassTexture.height },
+                    { (float)posX,(float)posY,(float)tileSize,(float)tileSize },
+                    { 0,0 },
+                    0,
+                    WHITE
+				);
+            }
+			// 1 = stone
+            else if (map[y][x] == 1) {
+                DrawTexturePro(
+                    stoneTexture,
+                    { 0,0,(float)stoneTexture.width,(float)stoneTexture.height },
+                    { (float)posX,(float)posY,(float)tileSize,(float)tileSize },
+                    { 0,0 },
+                    0,
+					WHITE
+				);
+			}
+            // 2 = dirt
+            else if (map[y][x] == 2) {
+                DrawTexturePro(
+                    dirtTexture,
+                    { 0,0,(float)stoneTexture.width,(float)stoneTexture.height },
+                    { (float)posX,(float)posY,(float)tileSize,(float)tileSize },
+                    { 0,0 },
+                    0,
+                    WHITE
+                );
+			}
+            //fehler
+            else {
+                DrawRectangle(posX, posY, tileSize, tileSize, MAGENTA);
+			}
         }
     }
 
@@ -53,4 +83,23 @@ void DrawMap(int screenWidth, int screenHeight)
         0,
         WHITE
     );
+}
+
+void DevAnsicht(int screenWidth, int screenHeight)
+{
+    //spielerposition
+	DrawText(TextFormat("Spieler X: %d", spielerX), 10, 10, 20, BLACK);
+	DrawText(TextFormat("Spieler Y: %d", spielerY), 10, 40, 20, BLACK);
+
+    //markierung
+	DrawText(TextFormat("Maus X: %d", mausX), 10, 80, 20, BLACK);
+	DrawText(TextFormat("Maus Y: %d", mausY), 10, 110, 20, BLACK);
+
+    DrawText(TextFormat("Markiert: %d, %d", (mausX - (screenWidth - (MAP_W * (screenWidth / MAP_W < screenHeight / MAP_H ? screenWidth / MAP_W : screenHeight / MAP_H))) / 2) / (screenWidth / MAP_W < screenHeight / MAP_H ? screenWidth / MAP_W : screenHeight / MAP_H),
+        (mausY - (screenHeight - (MAP_H * (screenWidth / MAP_W < screenHeight / MAP_H ? screenWidth / MAP_W : screenHeight / MAP_H))) / 2) / (screenWidth / MAP_W < screenHeight / MAP_H ? screenWidth / MAP_W : screenHeight / MAP_H)), 10, 140, 20, BLACK);
+    DrawText(TextFormat("MArkierter Block: %d", map[(mausY - (screenHeight - (MAP_H * (screenWidth / MAP_W < screenHeight / MAP_H ? screenWidth / MAP_W : screenHeight / MAP_H))) / 2) / (screenWidth / MAP_W < screenHeight / MAP_H ? screenWidth / MAP_W : screenHeight / MAP_H)]
+		[(mausX - (screenWidth - (MAP_W * (screenWidth / MAP_W < screenHeight / MAP_H ? screenWidth / MAP_W : screenHeight / MAP_H))) / 2) / (screenWidth / MAP_W < screenHeight / MAP_H ? screenWidth / MAP_W : screenHeight / MAP_H)]), 10, 170, 20, BLACK);
+
+
+
 }

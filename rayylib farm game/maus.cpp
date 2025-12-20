@@ -1,4 +1,5 @@
 //maus.cpp
+#include <cstdlib>
 #include "raylib.h"
 #include "globals.h"
 #include "Textures.h"
@@ -40,11 +41,23 @@ void markierungMaus()
     if (kx < 0 || kx >= MAP_W || ky < 0 || ky >= MAP_H)
         return;
 
+    // Distanz zum Spieler (Tile-basiert)
+    int dx = abs(kx - spielerX);
+    int dy = abs(ky - spielerY);
+
+    // außerhalb Radius 2 ? nichts anzeigen
+    if (dx + dy > 2)
+        return;
+
+    // innerhalb Radius ? markieren
     DrawTexturePro(
         GridHover,
-        { 0,0,(float)GridHover.width,(float)GridHover.height },
-        { (float)(offsetX + kx * tileSize),(float)(offsetY + ky * tileSize),(float)tileSize,(float)tileSize },
-        { 0,0 },
+        { 0, 0, (float)GridHover.width, (float)GridHover.height },
+        { (float)(offsetX + kx * tileSize),
+          (float)(offsetY + ky * tileSize),
+          (float)tileSize,
+          (float)tileSize },
+        { 0, 0 },
         0,
         WHITE
     );

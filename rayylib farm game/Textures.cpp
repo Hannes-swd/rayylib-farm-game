@@ -3,6 +3,7 @@
 
 Texture2D grassTexture = { 0 };
 Texture2D stoneTexture = { 0 };
+Texture2D dirtTexture = { 0 };
 
 Texture2D SpielerVorne = { 0 };
 Texture2D SpielerHinten = { 0 };
@@ -10,6 +11,9 @@ Texture2D SpielerLinks = { 0 };
 Texture2D SpielerRechts = { 0 };
 
 Texture2D GridHover = { 0 };
+Texture2D InventarSlot = { 0 };
+Texture2D HerzIcon = { 0 };
+Texture2D GeldIcon = { 0 };
 
 void LoadAllTextures()
 {
@@ -17,6 +21,7 @@ void LoadAllTextures()
 
     grassTexture = LoadTexture("resources/grass.png");
     stoneTexture = LoadTexture("resources/stone.png");
+	dirtTexture = LoadTexture("resources/dirt.png");
 
     SpielerVorne = LoadTexture("resources/spieler/Vor.png");
     SpielerHinten = LoadTexture("resources/spieler/Hinten.png");
@@ -24,12 +29,16 @@ void LoadAllTextures()
     SpielerRechts = LoadTexture("resources/spieler/rechts.png");
 
     GridHover = LoadTexture("resources/Ui/CurserRahmen.png");
+	InventarSlot = LoadTexture("resources/Ui/InventarSlot.png");
+	HerzIcon = LoadTexture("resources/Ui/Hart.png");
+	GeldIcon = LoadTexture("resources/Ui/Geld.png");
 }
 
 void UnloadAllTextures()
 {
     UnloadTexture(grassTexture);
     UnloadTexture(stoneTexture);
+	UnloadTexture(dirtTexture);
 
     UnloadTexture(SpielerVorne);
     UnloadTexture(SpielerHinten);
@@ -37,4 +46,7 @@ void UnloadAllTextures()
     UnloadTexture(SpielerRechts);
 
     UnloadTexture(GridHover);
+	UnloadTexture(InventarSlot);
+	UnloadTexture(HerzIcon);
+	UnloadTexture(GeldIcon);
 }

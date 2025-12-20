@@ -5,6 +5,7 @@
 // Map
 extern Texture2D grassTexture;
 extern Texture2D stoneTexture;
+extern Texture2D dirtTexture;
 
 // Spieler
 extern Texture2D SpielerVorne;
@@ -14,6 +15,9 @@ extern Texture2D SpielerRechts;
 
 // UI
 extern Texture2D GridHover;
+extern Texture2D InventarSlot;
+extern Texture2D HerzIcon;
+extern Texture2D GeldIcon;
 
 // Funktionen
 void LoadAllTextures();

@@ -135,6 +135,7 @@
     <ClCompile Include="maus.cpp" />
     <ClCompile Include="Moovment.cpp" />
     <ClCompile Include="Textures.cpp" />
+    <ClCompile Include="Ui.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="globals.h" />
@@ -142,6 +143,7 @@
     <ClInclude Include="maus.h" />
     <ClInclude Include="Moovment.h" />
     <ClInclude Include="Textures.h" />
+    <ClInclude Include="Ui.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

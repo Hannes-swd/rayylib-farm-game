@@ -3,7 +3,7 @@
 #include "globals.h"
 #include "Moovment.h"
 
-// Texturen als globale/statische Variablen, damit sie nicht jedes Mal geladen werden
+// Alle bilder in variablen speichern
 static Texture2D grassTexture = { 0 };
 static Texture2D stoneTexture = { 0 };
 static Texture2D SpielerVorne = { 0 };
@@ -13,7 +13,7 @@ static Texture2D SpielerRechts = { 0 };
 
 
 void LoadMapTextures() {
-    // Nur einmal laden
+        //bilder laden
     if (grassTexture.id == 0) {
         grassTexture = LoadTexture("resources/grass.png");
         stoneTexture = LoadTexture("resources/stone.png");
@@ -39,7 +39,6 @@ void UnloadMapTextures() {
 
 void DrawMap(int screenWidth, int screenHeight)
 {
-    // Texturen laden (nur beim ersten Aufruf)
     LoadMapTextures();
 
     // Map einstellungen

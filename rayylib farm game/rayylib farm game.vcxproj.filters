@@ -27,6 +27,12 @@
     <ClCompile Include="Moovment.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
+    <ClCompile Include="maus.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="Textures.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="globals.h">
@@ -36,6 +42,12 @@
       <Filter>Headerdateien</Filter>
     </ClInclude>
     <ClInclude Include="Moovment.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="maus.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="Textures.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
   </ItemGroup>

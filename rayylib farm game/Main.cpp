@@ -5,6 +5,7 @@
 #include "globals.h"
 #include "MapRender.h"
 #include "Moovment.h"
+#include "maus.h"
 
 int main(void)
 {
@@ -26,9 +27,16 @@ int main(void)
         screenHeight = GetScreenHeight();
 
         BeginDrawing();
+		//hintergrund
         ClearBackground(RAYWHITE);
-        HandleMovement();
+        //map
         DrawMap(screenWidth, screenHeight);
+        
+		//spieler bewegung
+        HandleMovement();
+        Mausposition();
+        markierungMaus();
+        
         EndDrawing();
     }
 

@@ -22,3 +22,7 @@ struct Tile {
 };
 
 extern Tile tiles[TILE_COUNT];
+
+//maus position
+extern int mausX;
+extern int mausY;

@@ -48,3 +48,7 @@ Tile tiles[TILE_COUNT] = {
 	{ true,  false, false, false}, // Grass
 	{ false, false, false, false}  // Stone
 };
+
+//maus position
+int mausX = 0;
+int mausY = 0;

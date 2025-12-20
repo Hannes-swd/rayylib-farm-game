@@ -57,3 +57,4 @@ void InitInventar();
 
 extern int dragSlot; 
 extern bool isDragging; 
+

@@ -90,6 +90,7 @@ void DrawMap(int screenWidth, int screenHeight)
                     WHITE
                 );
 			}
+            //karotte fertig
 
             //fehler
             else {

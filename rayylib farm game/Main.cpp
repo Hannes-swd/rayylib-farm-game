@@ -7,6 +7,7 @@
 #include "Ui.h"
 #include "ItemUse.h"
 #include "inventar.h"
+#include "Wachstum.h"
 
 int main()
 {
@@ -16,6 +17,8 @@ int main()
     SetTargetFPS(60);
 
     LoadAllTextures();
+    InitWachstum();
+
 
     InitInventar();
 
@@ -41,7 +44,8 @@ int main()
         inventarMangage();
 
         openinventar();
-		//DevAnsicht
+		
+        UpdateWachstum();
 
         EndDrawing();
 

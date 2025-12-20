@@ -138,6 +138,7 @@
     <ClCompile Include="Moovment.cpp" />
     <ClCompile Include="Textures.cpp" />
     <ClCompile Include="Ui.cpp" />
+    <ClCompile Include="Wachstum.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="globals.h" />
@@ -148,6 +149,7 @@
     <ClInclude Include="Moovment.h" />
     <ClInclude Include="Textures.h" />
     <ClInclude Include="Ui.h" />
+    <ClInclude Include="Wachstum.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

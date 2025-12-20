@@ -101,5 +101,15 @@ void markierungMaus()
                 }
             }
 		}
+        else if (AktuellesItem == ITEM_hacke) {
+            int karrotteCount = GetItemCount(ITEM_Karrotte);
+            if (karrotteCount > 0) {
+                if (map[ky][kx] == 5) {
+                    map[ky][kx] = 3;
+                    AddItem(ITEM_Karrotte, 3);
+                }
+            }
+        }
+        
     }
 }

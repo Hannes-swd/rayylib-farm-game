@@ -31,18 +31,26 @@ extern int mausY;
 
 extern int AktuellesItem;
 
+
 typedef struct {
     int id;
     int maxStack;
-    int tileId;
     bool placeable;
     bool consumable;
-	bool usable;
+    bool usable;
     int value;
 } ItemDef;
 
+extern ItemDef itemDB[];
+extern int itemDBSize;
+
 typedef enum {
     ITEM_hacke = 1,
-	ITEM_spitzhacke = 2
+	ITEM_spitzhacke = 2,
+	ITEM_Stein = 3
     
 } ItemID;
+
+//items hinzufügen / entfernen
+void AddItem(int id, int amount);
+void RemoveItem(int id, int amount);

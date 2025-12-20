@@ -19,8 +19,10 @@ extern Texture2D InventarSlot;
 extern Texture2D HerzIcon;
 extern Texture2D GeldIcon;
 
+//items
 extern Texture2D HackeItem;
 extern Texture2D spitzhackeItem;
+extern Texture2D steinItem;
 
 // Funktionen
 void LoadAllTextures();

@@ -41,15 +41,14 @@ void markierungMaus()
     if (kx < 0 || kx >= MAP_W || ky < 0 || ky >= MAP_H)
         return;
 
-    // Distanz zum Spieler (Tile-basiert)
+    // Distanz zum Spieler
     int dx = abs(kx - spielerX);
     int dy = abs(ky - spielerY);
 
-    // außerhalb Radius 2 ? nichts anzeigen
     if (dx + dy > 2)
         return;
-
-    // innerhalb Radius ? markieren
+    
+    
     DrawTexturePro(
         GridHover,
         { 0, 0, (float)GridHover.width, (float)GridHover.height },
@@ -61,4 +60,35 @@ void markierungMaus()
         0,
         WHITE
     );
+
+    //bearbeiten
+	if (IsMouseButtonDown
+    (MOUSE_BUTTON_LEFT)) {
+		if (AktuellesItem == 1) //hacke 
+        {
+            if (map[ky][kx] == 0) 
+            {
+                map[ky][kx] = 2;
+			}
+        }
+        if (AktuellesItem == 2) //spitzhacke
+        {
+            if (map[ky][kx] == 1) 
+            {
+                map[ky][kx] = 0;
+				AddItem(ITEM_Stein, 1);
+            }
+        }
+        if (AktuellesItem == 3) //stein
+        {
+            if (map[ky][kx] == 0 || map[ky][kx] == 2)
+            {
+                map[ky][kx] = 1;
+				RemoveItem(ITEM_Stein, 1);
+            }
+        }
+        
+	}
+    
+
 }

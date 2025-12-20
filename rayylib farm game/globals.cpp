@@ -57,17 +57,40 @@ int mausY = 0;
 
 //inventar
 
-int AktuellesItem = 2;
+int AktuellesItem = 3;
+
+
+
 /* 
 id 
 maxStack (anzahl) 
-tileId (map id)  (-1 = kein tile)
 placeable (palzierbar) 
 consumable (essbar)
 usable (anwendbar)
 value (anzahl)
 */
 ItemDef itemDB[] = {
-	{ ITEM_hacke, 1, -1, false, false, true, 0},
-	{ ITEM_spitzhacke, 1, -1, false, false, true, 0}
+	{ 1, 1, false, false, true, 0 },   // Hacke
+	{ 2, 1, false, false, true, 0 },   // Spitzhacke
+	{ 3, 99, true, false, false, 5 }   // Stein
 };
+
+int itemDBSize = sizeof(itemDB) / sizeof(ItemDef);
+
+//items hinzufügen /entfennen
+void AddItem(int id, int amount) {
+	int index = id - 1;
+	itemDB[index].value += amount;
+	if (itemDB[index].value > itemDB[index].maxStack)
+		itemDB[index].value = itemDB[index].maxStack;
+}
+void RemoveItem(int id, int amount) {
+	int index = id - 1;
+	if (index < 0 || index >= itemDBSize) return; // Sicherheit
+
+	itemDB[index].value -= amount;
+	if (itemDB[index].value < 0)
+		itemDB[index].value = 0;
+}
+
+

@@ -17,6 +17,7 @@ Texture2D GeldIcon = { 0 };
 
 Texture2D HackeItem = { 0 };
 Texture2D spitzhackeItem = { 0 };
+Texture2D steinItem = { 0 };
 
 void LoadAllTextures()
 {
@@ -38,6 +39,7 @@ void LoadAllTextures()
 
 	HackeItem = LoadTexture("resources/items/hacke.png");
 	spitzhackeItem = LoadTexture("resources/items/spitzhacke.png");
+	steinItem = LoadTexture("resources/items/stein.png");
 }
 
 void UnloadAllTextures()
@@ -58,4 +60,6 @@ void UnloadAllTextures()
 
 	UnloadTexture(HackeItem);
 	UnloadTexture(spitzhackeItem);
+	UnloadTexture(steinItem);
+
 }

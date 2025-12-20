@@ -5,6 +5,7 @@
 #include "maus.h"
 #include "Textures.h"
 #include "Ui.h"
+#include "ItemUse.h"
 
 int main()
 {
@@ -28,9 +29,14 @@ int main()
 
         DrawUI();
 
+        inventarMangage();
 		//DevAnsicht(GetScreenWidth(), GetScreenHeight());
 
         EndDrawing();
+
+        //tests
+
+        
     }
 
     UnloadAllTextures();

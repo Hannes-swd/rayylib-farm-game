@@ -60,7 +60,21 @@ void DrawUI()
 			WHITE
 		);
 	}
+	if (AktuellesItem == 3) {
+		DrawTexturePro(
+			steinItem,
+			{ 0,0,(float)InventarSlot.width,(float)InventarSlot.height },
+			{ 10.0f,(float)(GetScreenHeight() - 74),64.0f,64.0f },
+			{ 0,0 },
+			0,
+			WHITE
+		);
+		// Anzahl anzeigen
+		DrawText(TextFormat("%d", itemDB[2].value), 70, GetScreenHeight() - 20, 20, BLACK);
+	}
+
 
 
 
 }
+

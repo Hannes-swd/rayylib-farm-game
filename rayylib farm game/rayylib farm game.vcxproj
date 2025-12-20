@@ -130,6 +130,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="globals.cpp" />
+    <ClCompile Include="ItemUse.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="MapRender.cpp" />
     <ClCompile Include="maus.cpp" />
@@ -139,6 +140,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="globals.h" />
+    <ClInclude Include="ItemUse.h" />
     <ClInclude Include="MapRender.h" />
     <ClInclude Include="maus.h" />
     <ClInclude Include="Moovment.h" />

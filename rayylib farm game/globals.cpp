@@ -54,3 +54,20 @@ Tile tiles[TILE_COUNT] = {
 //maus position
 int mausX = 0;
 int mausY = 0;
+
+//inventar
+
+int AktuellesItem = 2;
+/* 
+id 
+maxStack (anzahl) 
+tileId (map id)  (-1 = kein tile)
+placeable (palzierbar) 
+consumable (essbar)
+usable (anwendbar)
+value (anzahl)
+*/
+ItemDef itemDB[] = {
+	{ ITEM_hacke, 1, -1, false, false, true, 0},
+	{ ITEM_spitzhacke, 1, -1, false, false, true, 0}
+};

@@ -26,3 +26,23 @@ extern Tile tiles[TILE_COUNT];
 //maus position
 extern int mausX;
 extern int mausY;
+
+//inventar
+
+extern int AktuellesItem;
+
+typedef struct {
+    int id;
+    int maxStack;
+    int tileId;
+    bool placeable;
+    bool consumable;
+	bool usable;
+    int value;
+} ItemDef;
+
+typedef enum {
+    ITEM_hacke = 1,
+	ITEM_spitzhacke = 2
+    
+} ItemID;

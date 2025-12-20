@@ -6,6 +6,7 @@
 #include "Textures.h"
 #include "Ui.h"
 #include "ItemUse.h"
+#include "inventar.h"
 
 int main()
 {
@@ -15,6 +16,11 @@ int main()
     SetTargetFPS(60);
 
     LoadAllTextures();
+
+    InitInventar();
+
+	AddItem(ITEM_hacke, 1);
+	AddItem(ITEM_spitzhacke, 1);
 
     while (!WindowShouldClose())
     {
@@ -32,6 +38,8 @@ int main()
         DrawUI();
 
         inventarMangage();
+
+        openinventar();
 		//DevAnsicht(GetScreenWidth(), GetScreenHeight());
 
         EndDrawing();

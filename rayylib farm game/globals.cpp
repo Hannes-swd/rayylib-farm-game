@@ -1,96 +1,113 @@
-//globals.cpp
-
 #include "globals.h"
+#include <cstdlib>
 
-//LEGENDE
-/*
-	0 = Grass (walkable)
-	1 = Stone (not walkable)
-*/
-int  map[20][25] =
-{
-	{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-	{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-	{0, 0, 0, 0, 0, 0, 1, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-	{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-	{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-
-	{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-	{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-	{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-	{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-	{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-
-	{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-	{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-	{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-	{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-	{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-
-	{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-	{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-	{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-	{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-	{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
-
+int map[20][25] = {
+    {0} 
 };
 
-//spiler informationen
+// Spielerinformationen
 int spielerX = 1, spielerY = 1;
 int spielerLeben = 100;
 int Geld = 50;
 int tag = 1;
 int richtung = 0; // 0 = vorne, 1 = hinten, 2 = links, 3 = rechts
 
-//blöcke
-
+// Blöcke
 Tile tiles[TILE_COUNT] = {
-	{ true,  false, false, false}, // Grass
-	{ false, false, false, false},  // Stone
-	{ true, true, false, false } // Dirt
-
+    { true,  false, false, false}, // 0: Grass
+    { false, false, false, false}, // 1: Stone
+    { true,  true,  false, false}  // 2: Dirt
 };
 
-//maus position
+// Mausposition
 int mausX = 0;
 int mausY = 0;
 
-//inventar
+int AktuellesItem = 0;
+int AktuellerSlot = 1;
 
-int AktuellesItem = 3;
+bool inventaroffen = false;
 
+int inventar[INVENTAR_SLOTS] = { 0 };
+int inventarMenge[INVENTAR_SLOTS] = { 0 };
 
+int dragSlot = -1;
+bool isDragging = false;
 
-/* 
-id 
-maxStack (anzahl) 
-placeable (palzierbar) 
-consumable (essbar)
-usable (anwendbar)
-value (anzahl)
-*/
-ItemDef itemDB[] = {
-	{ 1, 1, false, false, true, 0 },   // Hacke
-	{ 2, 1, false, false, true, 0 },   // Spitzhacke
-	{ 3, 5, true, false, false, 5 }   // Stein
-};
+int GetMaxStack(int id) {
+    switch (id) {
+    case ITEM_hacke: return 1;
+    case ITEM_spitzhacke: return 1;
+    case ITEM_Stein: return 99;
+    default: return 1;
+    }
+}
 
-int itemDBSize = sizeof(itemDB) / sizeof(ItemDef);
+int GetItemCount(int id) {
+    int total = 0;
+    for (int i = 0; i < INVENTAR_SLOTS; i++) {
+        if (inventar[i] == id) {
+            total += inventarMenge[i];
+        }
+    }
+    return total;
+}
 
-//items hinzufügen /entfennen
+// Items hinzufügen
 void AddItem(int id, int amount) {
-	int index = id - 1;
-	itemDB[index].value += amount;
-	if (itemDB[index].value > itemDB[index].maxStack)
-		itemDB[index].value = itemDB[index].maxStack;
+   
+    for (int i = 0; i < INVENTAR_SLOTS && amount > 0; i++) {
+        if (inventar[i] == id) {
+            int maxStack = GetMaxStack(id);
+            int space = maxStack - inventarMenge[i];
+
+            if (space > 0) {
+                int toAdd = (amount < space) ? amount : space;
+                inventarMenge[i] += toAdd;
+                amount -= toAdd;
+            }
+        }
+    }
+
+    
+    for (int i = 0; i < INVENTAR_SLOTS && amount > 0; i++) {
+        if (inventar[i] == 0) {
+            inventar[i] = id;
+            int maxStack = GetMaxStack(id);
+            int toAdd = (amount < maxStack) ? amount : maxStack;
+            inventarMenge[i] = toAdd;
+            amount -= toAdd;
+        }
+    }
 }
+
+// Item entfernen
 void RemoveItem(int id, int amount) {
-	int index = id - 1;
-	if (index < 0 || index >= itemDBSize) return; 
 
-	itemDB[index].value -= amount;
-	if (itemDB[index].value < 0)
-		itemDB[index].value = 0;
+    for (int i = INVENTAR_SLOTS - 1; i >= 0 && amount > 0; i--) {
+        if (inventar[i] == id) {
+            if (inventarMenge[i] >= amount) {
+                inventarMenge[i] -= amount;
+                amount = 0;
+                if (inventarMenge[i] == 0) {
+                    inventar[i] = 0;
+                }
+            }
+            else {
+                amount -= inventarMenge[i];
+                inventar[i] = 0;
+                inventarMenge[i] = 0;
+            }
+        }
+    }
 }
 
-
+// Inventar
+void InitInventar() {
+    
+	//slots leer machen
+    for (int i = 0; i < INVENTAR_SLOTS; i++) {
+        inventar[i] = 0;
+        inventarMenge[i] = 0;
+    }
+}

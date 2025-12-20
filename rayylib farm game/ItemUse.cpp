@@ -1,22 +1,29 @@
-//ItemUse.cpp
-
 #include "raylib.h"
 #include "globals.h"
 #include "Textures.h"
 #include <cstdlib>
 
-
 void inventarMangage()
 {
-	float wheel = GetMouseWheelMove();
+    if (inventaroffen) return;
+
+    float wheel = GetMouseWheelMove();
     if (wheel > 0) {
-        AktuellesItem--;
-        if (AktuellesItem < 1) AktuellesItem = 3; // wrap nach oben
+        AktuellerSlot++;
+        if (AktuellerSlot > 5) AktuellerSlot = 1;
     }
     else if (wheel < 0) {
-        AktuellesItem++;
-        if (AktuellesItem > 3) AktuellesItem = 1; // wrap nach unten
+        AktuellerSlot--;
+        if (AktuellerSlot < 1) AktuellerSlot = 5;
+    }
+
+    
+    int hotbarIndex = INVENTAR_SLOTS - 5 + (AktuellerSlot - 1);
+
+    if (hotbarIndex >= 0 && hotbarIndex < INVENTAR_SLOTS) {
+        AktuellesItem = inventar[hotbarIndex];
+    }
+    else {
+        AktuellesItem = 0;
     }
 }
-
-

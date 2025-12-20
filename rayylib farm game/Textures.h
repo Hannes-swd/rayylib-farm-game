@@ -18,6 +18,7 @@ extern Texture2D GridHover;
 extern Texture2D InventarSlot;
 extern Texture2D HerzIcon;
 extern Texture2D GeldIcon;
+extern Texture2D AusgewaelterSlot;
 
 //items
 extern Texture2D HackeItem;

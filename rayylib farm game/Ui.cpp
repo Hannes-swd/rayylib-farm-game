@@ -27,54 +27,6 @@ void DrawUI()
 		WHITE
 	);
 	DrawText(TextFormat("%d", Geld), 80, 100, 50, BLACK);
-
-	//inventar 
-	DrawTexturePro(
-		InventarSlot,
-		{ 0,0,(float)InventarSlot.width,(float)InventarSlot.height },
-		{ 10.0f,(float)(GetScreenHeight() - 74),64.0f,64.0f },
-		{ 0,0 },
-		0,
-		WHITE
-	);
-
-	//Item anzeigfen
 	
-	if (AktuellesItem == 1) {
-		DrawTexturePro(
-			HackeItem,
-			{ 0,0,(float)InventarSlot.width,(float)InventarSlot.height },
-			{ 10.0f,(float)(GetScreenHeight() - 74),64.0f,64.0f },
-			{ 0,0 },
-			0,
-			WHITE
-		);
-	}
-	else if (AktuellesItem == 2) {
-		DrawTexturePro(
-			spitzhackeItem,
-			{ 0,0,(float)InventarSlot.width,(float)InventarSlot.height },
-			{ 10.0f,(float)(GetScreenHeight() - 74),64.0f,64.0f },
-			{ 0,0 },
-			0,
-			WHITE
-		);
-	}
-	if (AktuellesItem == 3) {
-		DrawTexturePro(
-			steinItem,
-			{ 0,0,(float)InventarSlot.width,(float)InventarSlot.height },
-			{ 10.0f,(float)(GetScreenHeight() - 74),64.0f,64.0f },
-			{ 0,0 },
-			0,
-			WHITE
-		);
-		// Anzahl anzeigen
-		DrawText(TextFormat("%d", itemDB[2].value), 70, GetScreenHeight() - 20, 20, BLACK);
-	}
-
-
-
-
 }
 

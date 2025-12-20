@@ -4,8 +4,6 @@
 #include "globals.h"
 #include "Textures.h"
 #include "ItemUse.h"
-#pragma once
-
 
 constexpr int MAP_W = 25;
 constexpr int MAP_H = 20;
@@ -44,14 +42,14 @@ void markierungMaus()
     if (kx < 0 || kx >= MAP_W || ky < 0 || ky >= MAP_H)
         return;
 
-    // Distanz zum Spieler
+    // abstand zum Spieler
     int dx = abs(kx - spielerX);
     int dy = abs(ky - spielerY);
 
     if (dx + dy > 2)
         return;
-    
-    
+
+    // Zeichne die Markierung
     DrawTexturePro(
         GridHover,
         { 0, 0, (float)GridHover.width, (float)GridHover.height },
@@ -64,6 +62,7 @@ void markierungMaus()
         WHITE
     );
 
+    // Mausklicks
     if (IsMouseButtonDown(MOUSE_BUTTON_LEFT)) {
         if (AktuellesItem == ITEM_hacke) {
             if (map[ky][kx] == 0) {
@@ -74,23 +73,24 @@ void markierungMaus()
         }
         else if (AktuellesItem == ITEM_spitzhacke) {
             if (map[ky][kx] == 1) {
-                int index = ITEM_Stein - 1;
-                if (itemDB[index].value < itemDB[index].maxStack) {
+                int steinCount = GetItemCount(ITEM_Stein);
+                int maxStack = GetMaxStack(ITEM_Stein);
+
+                if (steinCount < maxStack) {
                     map[ky][kx] = 0;
                     AddItem(ITEM_Stein, 1);
                 }
-                // leer
             }
         }
         else if (AktuellesItem == ITEM_Stein) {
-            int index = ITEM_Stein - 1;
-            if (itemDB[index].value > 0) {
+            int steinCount = GetItemCount(ITEM_Stein);
+
+            if (steinCount > 0) {
                 if (map[ky][kx] == 0 || map[ky][kx] == 2) {
                     map[ky][kx] = 1;
                     RemoveItem(ITEM_Stein, 1);
                 }
             }
         }
-
     }
 }

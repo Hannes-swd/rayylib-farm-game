@@ -14,6 +14,7 @@ Texture2D GridHover = { 0 };
 Texture2D InventarSlot = { 0 };
 Texture2D HerzIcon = { 0 };
 Texture2D GeldIcon = { 0 };
+Texture2D AusgewaelterSlot = { 0 };
 
 Texture2D HackeItem = { 0 };
 Texture2D spitzhackeItem = { 0 };
@@ -36,6 +37,7 @@ void LoadAllTextures()
 	InventarSlot = LoadTexture("resources/Ui/InventarSlot.png");
 	HerzIcon = LoadTexture("resources/Ui/Hart.png");
 	GeldIcon = LoadTexture("resources/Ui/Geld.png");
+	AusgewaelterSlot = LoadTexture("resources/Ui/AusgewälterSlot.png");
 
 	HackeItem = LoadTexture("resources/items/hacke.png");
 	spitzhackeItem = LoadTexture("resources/items/spitzhacke.png");
@@ -57,6 +59,7 @@ void UnloadAllTextures()
 	UnloadTexture(InventarSlot);
 	UnloadTexture(HerzIcon);
 	UnloadTexture(GeldIcon);
+	UnloadTexture(AusgewaelterSlot);
 
 	UnloadTexture(HackeItem);
 	UnloadTexture(spitzhackeItem);

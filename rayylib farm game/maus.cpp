@@ -66,9 +66,15 @@ void markierungMaus()
     if (IsMouseButtonDown(MOUSE_BUTTON_LEFT)) {
         if (AktuellesItem == ITEM_hacke) {
             if (map[ky][kx] == 0) {
+                // Gras zu Erde
                 map[ky][kx] = 2;
                 int that = 1 + rand() % 4;
                 if (that == 1) AddItem(ITEM_Stein, 1);
+            }
+            // KAROTTEN ERNTEN mit Hacke
+            else if (map[ky][kx] == 5) { // Karotte ausgewachsen
+                map[ky][kx] = 2; // Zurück zu Erde
+                AddItem(ITEM_Karrotte, 3); // 3 Karotten ernten
             }
         }
         else if (AktuellesItem == ITEM_spitzhacke) {
@@ -95,21 +101,11 @@ void markierungMaus()
         else if (AktuellesItem == ITEM_Karrotte) {
             int karrotteCount = GetItemCount(ITEM_Karrotte);
             if (karrotteCount > 0) {
-                if (map[ky][kx] == 2) {
-                    map[ky][kx] = 3;
-                    RemoveItem(ITEM_Karrotte, 1);
-                }
-            }
-		}
-        else if (AktuellesItem == ITEM_hacke) {
-            int karrotteCount = GetItemCount(ITEM_Karrotte);
-            if (karrotteCount > 0) {
-                if (map[ky][kx] == 5) {
-                    map[ky][kx] = 3;
-                    AddItem(ITEM_Karrotte, 3);
+                if (map[ky][kx] == 2) { // Nur auf Erde pflanzen
+                    map[ky][kx] = 3; // Wird zu Karotte Stadium 1
+                    RemoveItem(ITEM_Karrotte, 1); // 1 Karotte verbraucht
                 }
             }
         }
-        
     }
 }

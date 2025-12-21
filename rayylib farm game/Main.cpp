@@ -21,6 +21,7 @@ int main()
 
 
     InitInventar();
+    UpdateWachstum();
 
 	AddItem(ITEM_hacke, 1);
 	AddItem(ITEM_spitzhacke, 1);

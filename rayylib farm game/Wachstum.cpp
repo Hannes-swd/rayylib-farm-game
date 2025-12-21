@@ -1,70 +1,58 @@
-//Wachstum.cpp
-#include "raylib.h"
-#include "globals.h"
+// Wachstum.cpp
+#include "Wachstum.h"      // WICHTIG: Eigene Header zuerst
+#include "globals.h"       // Dann globals
 #include <cstdlib>
 #include <ctime>
 
-#define MAP_W 25
-#define MAP_H 20
-// Wachstum-Einstellungen
-#define WACHSTUMS_INTERVALL 10.0f    //zeit zwischen wachsen
-
-struct PflanzenInfo {
-    int startID;        
-    int maxWachstum;    
-    float wachstumsChance; 
-};
-
-// Pflanzen-Definitionen
+// --- KAROTTEN DEFINIEREN (hier, nicht in .h) ---
 PflanzenInfo karotteInfo = {
-    3,           
-    3,           
-    0.3f         
+    3,      // startID (Block 3)
+    3,      // 3 Wachstumsstufen (3,4,5)
+    0.2f,   // 40% Chance zu wachsen
+    3,      // 3 Karotten bei Ernte
+    20.0f,  // Basis: alle 10 Sekunden wachsen prüfen
+    0.5f,   // WACHSTUMSFAKTOR: 0.5 = HALB SO SCHNELL!
+    "Karotte"
 };
 
+// Timer
 float wachstumsTimer = 0.0f;
 
 void InitWachstum() {
     wachstumsTimer = 0.0f;
+    srand((unsigned int)time(NULL));
 }
 
-bool IstPflanze(int blockID, PflanzenInfo* pflanze) {
-    if (pflanze == nullptr) return false;
-    return blockID >= pflanze->startID &&
-        blockID < pflanze->startID + pflanze->maxWachstum;
-}
-
-// Wachsfunktion
-void LassePflanzeWachsen(int x, int y, PflanzenInfo* pflanze) {
-    if (pflanze == nullptr) return;
-
-    int currentID = map[y][x];
-
-    if (currentID < pflanze->startID + pflanze->maxWachstum - 1) {
-
-        float chance = pflanze->wachstumsChance;
-
-        float randomValue = (float)rand() / (float)RAND_MAX;
-
-        if (randomValue <= chance) {
-            map[y][x] = currentID + 1;
-        }
+PflanzenInfo* GetPflanzenInfo(int blockID) {
+    if (blockID >= karotteInfo.startID &&
+        blockID < karotteInfo.startID + karotteInfo.maxWachstum) {
+        return &karotteInfo;
     }
+    return nullptr;
 }
 
+//WACHSTUM UPDATE
 void UpdateWachstum() {
     float deltaTime = GetFrameTime();
-    wachstumsTimer += deltaTime;
 
-    if (wachstumsTimer >= WACHSTUMS_INTERVALL) {
+    
+    wachstumsTimer += deltaTime * karotteInfo.wachstumsFaktor;
+
+    if (wachstumsTimer >= karotteInfo.basisIntervall) {
         wachstumsTimer = 0.0f;
 
+        // Alle Karotten auf der Map
         for (int y = 0; y < MAP_H; y++) {
             for (int x = 0; x < MAP_W; x++) {
                 int blockID = map[y][x];
 
-                if (IstPflanze(blockID, &karotteInfo)) {
-                    LassePflanzeWachsen(x, y, &karotteInfo);
+                if (blockID >= karotteInfo.startID &&
+                    blockID < karotteInfo.startID + karotteInfo.maxWachstum - 1) {
+
+                    float randomValue = (float)rand() / (float)RAND_MAX;
+                    if (randomValue <= karotteInfo.wachstumsChance) {
+                        map[y][x] = blockID + 1;
+                    }
                 }
             }
         }

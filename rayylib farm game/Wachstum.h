@@ -1,9 +1,23 @@
-//Wachstum.h
+// Wachstum.h
 #pragma once
+
+#include "raylib.h"
 
 #define MAP_W 25
 #define MAP_H 20
 
-void InitWachstum();
+struct PflanzenInfo {
+    int startID;
+    int maxWachstum;
+    float wachstumsChance;
+    int produktCount;
+    float basisIntervall;
+    float wachstumsFaktor;
+    const char* name;
+};
 
+extern PflanzenInfo karotteInfo; 
+
+void InitWachstum();
 void UpdateWachstum();
+PflanzenInfo* GetPflanzenInfo(int blockID);

@@ -39,7 +39,7 @@ Texture2D steinItem = { 0 };
 Texture2D KarotteItem = { 0 };
 Texture2D ErdbaereItem = { 0 };
 Texture2D BaumSeplingItem = { 0 };
-
+Texture2D HolzItem = { 0 };
 
 void LoadAllTextures()
 {
@@ -81,6 +81,7 @@ void LoadAllTextures()
 	KarotteItem = LoadTexture("resources/items/KarotteItem.png");
 	ErdbaereItem = LoadTexture("resources/items/ErdbaereItem.png");
 	BaumSeplingItem = LoadTexture("resources/items/BaumSeplingItem.png");
+	HolzItem = LoadTexture("resources/items/HolzItem.png");
 }
 
 void UnloadAllTextures()
@@ -116,5 +117,6 @@ void UnloadAllTextures()
 	UnloadTexture(KarotteItem);
 	UnloadTexture(ErdbaereItem);
 	UnloadTexture(BaumSeplingItem);
+	UnloadTexture(HolzItem);
 
 }

@@ -28,6 +28,7 @@ int main()
 	AddItem(ITEM_Karrotte, 10);
 	AddItem(ITEM_Erdbaere, 10);
     AddItem(ITEM_BaumSepling, 10);
+    AddItem(ITEM_HolzItem, 10);
 
     while (!WindowShouldClose())
     {

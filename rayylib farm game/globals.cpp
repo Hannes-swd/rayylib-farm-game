@@ -43,11 +43,13 @@ int GetMaxStack(int id) {
     case ITEM_hacke: return 1;
     case ITEM_spitzhacke: return 1;
     case ITEM_Stein: return 99;
+    case ITEM_HolzItem: return 99;
 
     //Pflanzen
 	case ITEM_Karrotte: return 99;
     case ITEM_Erdbaere: return 99;
 	case ITEM_BaumSepling: return 99;
+    
     default: return 1;
     }
 }

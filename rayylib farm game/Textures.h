@@ -6,6 +6,8 @@
 extern Texture2D grassTexture;
 extern Texture2D stoneTexture;
 extern Texture2D dirtTexture;
+
+
 //pflanzen
 extern Texture2D Karotte1Texture;
 extern Texture2D Karotte2Texture;
@@ -14,6 +16,9 @@ extern Texture2D Karotte3Texture;
 extern Texture2D Erdbere1Texture;
 extern Texture2D Erdbere2Texture;
 extern Texture2D Erdbere3Texture;
+
+extern Texture2D Baum1Texture;
+extern Texture2D Baum2Texture;
 
 // Spieler
 extern Texture2D SpielerVorne;
@@ -34,6 +39,7 @@ extern Texture2D spitzhackeItem;
 extern Texture2D steinItem;
 extern Texture2D KarotteItem;
 extern Texture2D ErdbaereItem;
+extern Texture2D BaumSeplingItem;
 
 // Funktionen
 void LoadAllTextures();

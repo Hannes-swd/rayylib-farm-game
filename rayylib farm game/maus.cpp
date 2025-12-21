@@ -128,11 +128,22 @@ void markierungMaus()
                 }
             }
 		}
-        else if (AktuellesItem == 0) {
-            // Nichts ausgewählt, Block entfernen
-            if (map[ky][kx] == 2) {
-                map[ky][kx] = 0; // Dirt zu Grass
+        else if (AktuellesItem == ITEM_BaumSepling) {
+            int Baumseplingcount = GetItemCount(ITEM_BaumSepling);
+            if (Baumseplingcount > 0) {
+                if (map[ky][kx] == 0) {
+                    map[ky][kx] = 9;
+                    RemoveItem(ITEM_BaumSepling, 1);
+                }
             }
         }
+        
+        else if (AktuellesItem == 0) {
+            if (map[ky][kx] == 2) {
+                map[ky][kx] = 0;
+            }
+            
+        }
+        
     }
 }

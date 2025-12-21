@@ -27,6 +27,7 @@ int main()
 	AddItem(ITEM_spitzhacke, 1);
 	AddItem(ITEM_Karrotte, 10);
 	AddItem(ITEM_Erdbaere, 10);
+    AddItem(ITEM_BaumSepling, 10);
 
     while (!WindowShouldClose())
     {

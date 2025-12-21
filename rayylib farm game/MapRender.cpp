@@ -121,6 +121,28 @@ void DrawMap(int screenWidth, int screenHeight)
                     WHITE
                 );
 			}
+            //baum
+            else if (map[y][x] == 10) {
+                DrawTexturePro(
+                    Baum1Texture,
+                    { 0,0,(float)Baum1Texture.width,(float)Baum1Texture.height },
+                    { (float)posX,(float)posY,(float)tileSize,(float)tileSize },
+                    { 0,0 },
+                    0,
+                    WHITE
+                );
+            }
+            else if (map[y][x] == 9) {
+                DrawTexturePro(
+                    Baum2Texture,
+                    { 0,0,(float)Baum2Texture.width,(float)Baum2Texture.height },
+                    { (float)posX,(float)posY,(float)tileSize,(float)tileSize },
+                    { 0,0 },
+                    0,
+                    WHITE
+                );
+			}
+
 
             //fehler
             else {

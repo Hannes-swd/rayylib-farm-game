@@ -1,6 +1,6 @@
 // Wachstum.cpp
-#include "Wachstum.h"      // WICHTIG: Eigene Header zuerst
-#include "globals.h"       // Dann globals
+#include "Wachstum.h" 
+#include "globals.h" 
 #include <cstdlib>
 #include <ctime>
 
@@ -10,26 +10,41 @@ PflanzenInfo karotteInfo = {
     3,      // 3 Wachstumsstufen (3,4,5)
     0.2f,   // 40% Chance zu wachsen
     3,      // 3 Karotten bei Ernte
-    20.0f,  // Basis: alle 10 Sekunden wachsen prüfen
+    20.0f,  // Basis: alle 20 Sekunden wachsen prüfen
     0.5f,   // WACHSTUMSFAKTOR: 0.5 = HALB SO SCHNELL!
     "Karotte"
 };
-//Erdbere
+
+//Erdbeere
 PflanzenInfo ErdbaereInfo = {
-    6,      // startID (Block 3)
-    3,      // 3 Wachstumsstufen (3,4,5)
-    0.2f,   // 40% Chance zu wachsen
-    3,      // 3 Karotten bei Ernte
-    20.0f,  // Warten Bis prüfung
-    0.5f,   // WACHSTUMSFAKTOR: 0.5 = HALB SO SCHNELL!
-    "Erdbere"
+    6,      
+    3,      
+    0.2f,   
+    3,      
+    20.0f,  
+    0.5f,   
+    "Erdbeere"
 };
 
-// Timer
-float wachstumsTimer = 0.0f;
+//Baum
+PflanzenInfo BaumInfo = {
+    9,      
+    2,      
+    0.2f,   
+    3,      
+    10.0f,  
+    0.5f,   
+    "Baum"
+};
+
+float karottenTimer = 0.0f;
+float erdbeerenTimer = 0.0f;
+float baumTimer = 0.0f;
 
 void InitWachstum() {
-    wachstumsTimer = 0.0f;
+    karottenTimer = 0.0f;
+    erdbeerenTimer = 0.0f;
+    baumTimer = 0.0f;
     srand((unsigned int)time(NULL));
 }
 
@@ -41,21 +56,22 @@ PflanzenInfo* GetPflanzenInfo(int blockID) {
     if (blockID >= ErdbaereInfo.startID &&
         blockID < ErdbaereInfo.startID + ErdbaereInfo.maxWachstum) {
         return &ErdbaereInfo;
-	}
+    }
+    if (blockID >= BaumInfo.startID &&
+        blockID < BaumInfo.startID + BaumInfo.maxWachstum) {
+        return &BaumInfo;
+    }
     return nullptr;
 }
 
-//WACHSTUM UPDATE
 void UpdateWachstum() {
     float deltaTime = GetFrameTime();
 
-    //Karrotten
-    wachstumsTimer += deltaTime * karotteInfo.wachstumsFaktor;
+    // Karotten-Wachstum
+    karottenTimer += deltaTime * karotteInfo.wachstumsFaktor;
+    if (karottenTimer >= karotteInfo.basisIntervall) {
+        karottenTimer = 0.0f;
 
-    if (wachstumsTimer >= karotteInfo.basisIntervall) {
-        wachstumsTimer = 0.0f;
-
-        
         for (int y = 0; y < MAP_H; y++) {
             for (int x = 0; x < MAP_W; x++) {
                 int blockID = map[y][x];
@@ -71,15 +87,19 @@ void UpdateWachstum() {
             }
         }
     }
-	//Erdbeeren
-	wachstumsTimer += deltaTime * ErdbaereInfo.wachstumsFaktor;
-    if (wachstumsTimer >= ErdbaereInfo.basisIntervall) {
-        wachstumsTimer = 0.0f;
+
+    // Erdbeeren-Wachstum
+    erdbeerenTimer += deltaTime * ErdbaereInfo.wachstumsFaktor;
+    if (erdbeerenTimer >= ErdbaereInfo.basisIntervall) {
+        erdbeerenTimer = 0.0f;
+
         for (int y = 0; y < MAP_H; y++) {
             for (int x = 0; x < MAP_W; x++) {
                 int blockID = map[y][x];
+
                 if (blockID >= ErdbaereInfo.startID &&
                     blockID < ErdbaereInfo.startID + ErdbaereInfo.maxWachstum - 1) {
+
                     float randomValue = (float)rand() / (float)RAND_MAX;
                     if (randomValue <= ErdbaereInfo.wachstumsChance) {
                         map[y][x] = blockID + 1;
@@ -87,5 +107,26 @@ void UpdateWachstum() {
                 }
             }
         }
-	}
+    }
+
+    // Baum-Wachstum
+    baumTimer += deltaTime * BaumInfo.wachstumsFaktor;
+    if (baumTimer >= BaumInfo.basisIntervall) {
+        baumTimer = 0.0f;
+
+        for (int y = 0; y < MAP_H; y++) {
+            for (int x = 0; x < MAP_W; x++) {
+                int blockID = map[y][x];
+
+                if (blockID >= BaumInfo.startID &&
+                    blockID < BaumInfo.startID + BaumInfo.maxWachstum - 1) {
+
+                    float randomValue = (float)rand() / (float)RAND_MAX;
+                    if (randomValue <= BaumInfo.wachstumsChance) {
+                        map[y][x] = blockID + 1;
+                    }
+                }
+            }
+        }
+    }
 }

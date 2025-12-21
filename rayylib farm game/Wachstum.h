@@ -16,8 +16,14 @@ struct PflanzenInfo {
     const char* name;
 };
 
-extern PflanzenInfo karotteInfo; 
+extern PflanzenInfo karotteInfo;
 extern PflanzenInfo ErdbaereInfo;
+extern PflanzenInfo BaumInfo;
+
+// Separate Timer für jede Pflanzenart
+extern float karottenTimer;
+extern float erdbeerenTimer;
+extern float baumTimer;
 
 void InitWachstum();
 void UpdateWachstum();

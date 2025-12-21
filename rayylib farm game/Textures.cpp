@@ -5,6 +5,8 @@
 Texture2D grassTexture = { 0 };
 Texture2D stoneTexture = { 0 };
 Texture2D dirtTexture = { 0 };
+
+
 //pflanzen
 Texture2D Karotte1Texture = { 0 };
 Texture2D Karotte2Texture = { 0 };
@@ -13,6 +15,9 @@ Texture2D Karotte3Texture = { 0 };
 Texture2D Erdbere1Texture = { 0 };
 Texture2D Erdbere2Texture = { 0 };
 Texture2D Erdbere3Texture = { 0 };
+
+Texture2D Baum1Texture = { 0 };
+Texture2D Baum2Texture = { 0 };
 
 // Spieler
 Texture2D SpielerVorne = { 0 };
@@ -33,6 +38,8 @@ Texture2D spitzhackeItem = { 0 };
 Texture2D steinItem = { 0 };
 Texture2D KarotteItem = { 0 };
 Texture2D ErdbaereItem = { 0 };
+Texture2D BaumSeplingItem = { 0 };
+
 
 void LoadAllTextures()
 {
@@ -42,6 +49,8 @@ void LoadAllTextures()
     grassTexture = LoadTexture("resources/grass.png");
     stoneTexture = LoadTexture("resources/stone.png");
 	dirtTexture = LoadTexture("resources/dirt.png");
+	
+
 	//pflanzen
 	Karotte1Texture = LoadTexture("resources/pflanzen/Karrotte1.png");
 	Karotte2Texture = LoadTexture("resources/pflanzen/Karrotte2.png");
@@ -49,6 +58,8 @@ void LoadAllTextures()
 	Erdbere1Texture = LoadTexture("resources/pflanzen/Erdbere1.png");
 	Erdbere2Texture = LoadTexture("resources/pflanzen/Erdbere2.png");
 	Erdbere3Texture = LoadTexture("resources/pflanzen/Erdbere3.png");
+	Baum1Texture = LoadTexture("resources/pflanzen/Baum1.png");
+	Baum2Texture = LoadTexture("resources/pflanzen/Baum2.png");
 
 	// Spieler
     SpielerVorne = LoadTexture("resources/spieler/Vor.png");
@@ -69,6 +80,7 @@ void LoadAllTextures()
 	steinItem = LoadTexture("resources/items/stein.png");
 	KarotteItem = LoadTexture("resources/items/KarotteItem.png");
 	ErdbaereItem = LoadTexture("resources/items/ErdbaereItem.png");
+	BaumSeplingItem = LoadTexture("resources/items/BaumSeplingItem.png");
 }
 
 void UnloadAllTextures()
@@ -76,6 +88,7 @@ void UnloadAllTextures()
     UnloadTexture(grassTexture);
     UnloadTexture(stoneTexture);
 	UnloadTexture(dirtTexture);
+	
 
 	UnloadTexture(Karotte1Texture);
 	UnloadTexture(Karotte2Texture);
@@ -83,6 +96,8 @@ void UnloadAllTextures()
 	UnloadTexture(Erdbere1Texture);
 	UnloadTexture(Erdbere2Texture);
 	UnloadTexture(Erdbere3Texture);
+	UnloadTexture(Baum1Texture);
+	UnloadTexture(Baum1Texture);
 
     UnloadTexture(SpielerVorne);
     UnloadTexture(SpielerHinten);
@@ -100,5 +115,6 @@ void UnloadAllTextures()
 	UnloadTexture(steinItem);
 	UnloadTexture(KarotteItem);
 	UnloadTexture(ErdbaereItem);
+	UnloadTexture(BaumSeplingItem);
 
 }

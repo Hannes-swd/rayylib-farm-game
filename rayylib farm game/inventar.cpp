@@ -58,6 +58,7 @@ void openinventar()
                     case ITEM_spitzhacke: itemTex = spitzhackeItem; break;
                     case ITEM_Stein: itemTex = steinItem; break;
 					case ITEM_Karrotte: itemTex = KarotteItem; break;
+					case ITEM_Erdbaere: itemTex = ErdbaereItem; break;
                     }
                     DrawTexturePro(itemTex,
                         { 0,0,(float)itemTex.width,(float)itemTex.height },
@@ -130,6 +131,7 @@ void openinventar()
                 case ITEM_spitzhacke: itemTex = spitzhackeItem; break;
                 case ITEM_Stein: itemTex = steinItem; break;
 				case ITEM_Karrotte: itemTex = KarotteItem; break;
+				case ITEM_Erdbaere: itemTex = ErdbaereItem; break;
                 }
                 Vector2 mouse = GetMousePosition();
                 DrawTexturePro(itemTex,
@@ -180,6 +182,7 @@ void openinventar()
                 case ITEM_spitzhacke: itemTex = spitzhackeItem; break;
                 case ITEM_Stein: itemTex = steinItem; break;
 				case ITEM_Karrotte: itemTex = KarotteItem; break;
+				case ITEM_Erdbaere: itemTex = ErdbaereItem; break;
                 }
                 DrawTexturePro(itemTex,
                     { 0,0,(float)itemTex.width,(float)itemTex.height },

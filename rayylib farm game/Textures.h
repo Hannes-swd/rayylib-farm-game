@@ -11,6 +11,10 @@ extern Texture2D Karotte1Texture;
 extern Texture2D Karotte2Texture;
 extern Texture2D Karotte3Texture;
 
+extern Texture2D Erdbere1Texture;
+extern Texture2D Erdbere2Texture;
+extern Texture2D Erdbere3Texture;
+
 // Spieler
 extern Texture2D SpielerVorne;
 extern Texture2D SpielerHinten;
@@ -29,6 +33,7 @@ extern Texture2D HackeItem;
 extern Texture2D spitzhackeItem;
 extern Texture2D steinItem;
 extern Texture2D KarotteItem;
+extern Texture2D ErdbaereItem;
 
 // Funktionen
 void LoadAllTextures();

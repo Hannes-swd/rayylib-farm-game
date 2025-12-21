@@ -66,16 +66,24 @@ void markierungMaus()
     if (IsMouseButtonDown(MOUSE_BUTTON_LEFT)) {
         if (AktuellesItem == ITEM_hacke) {
             if (map[ky][kx] == 0) {
-                // Gras zu Erde
                 map[ky][kx] = 2;
-                int that = 1 + rand() % 4;
-                if (that == 1) AddItem(ITEM_Stein, 1);
+                int random = 1 + rand() % 4;
+                if (random == 1) AddItem(ITEM_Stein, 1);
             }
             // KAROTTEN ERNTEN mit Hacke
-            else if (map[ky][kx] == 5) { // Karotte ausgewachsen
-                map[ky][kx] = 2; // Zurück zu Erde
-                AddItem(ITEM_Karrotte, 3); // 3 Karotten ernten
+            else if (map[ky][kx] == 5) { // was es abbaut
+                map[ky][kx] = 2; // Endert zu
+                AddItem(ITEM_Karrotte, 3); // giebt 3
             }
+
+            //erdbäre
+            else if (map[ky][kx] == 8) { 
+                map[ky][kx] = 7;
+                int random = 1 + rand() % 4;
+                AddItem(ITEM_Erdbaere, random);
+			}
+
+            
         }
         else if (AktuellesItem == ITEM_spitzhacke) {
             if (map[ky][kx] == 1) {
@@ -87,6 +95,10 @@ void markierungMaus()
                     AddItem(ITEM_Stein, 1);
                 }
             }
+            if (map[ky][kx] == 6 || map[ky][kx] == 7 || map[ky][kx] == 8) {
+                map[ky][kx] = 0;
+				AddItem(ITEM_Erdbaere, 1);
+			}
         }
         else if (AktuellesItem == ITEM_Stein) {
             int steinCount = GetItemCount(ITEM_Stein);
@@ -101,10 +113,25 @@ void markierungMaus()
         else if (AktuellesItem == ITEM_Karrotte) {
             int karrotteCount = GetItemCount(ITEM_Karrotte);
             if (karrotteCount > 0) {
-                if (map[ky][kx] == 2) { // Nur auf Erde pflanzen
-                    map[ky][kx] = 3; // Wird zu Karotte Stadium 1
-                    RemoveItem(ITEM_Karrotte, 1); // 1 Karotte verbraucht
+                if (map[ky][kx] == 2) { 
+                    map[ky][kx] = 3; 
+                    RemoveItem(ITEM_Karrotte, 1);
                 }
+            }
+        }
+        else if (AktuellesItem == ITEM_Erdbaere) {
+            int erdbaereCount = GetItemCount(ITEM_Erdbaere);
+            if (erdbaereCount > 0) {
+                if (map[ky][kx] == 0) { 
+                    map[ky][kx] = 6; 
+                    RemoveItem(ITEM_Erdbaere, 1);
+                }
+            }
+		}
+        else if (AktuellesItem == 0) {
+            // Nichts ausgewählt, Block entfernen
+            if (map[ky][kx] == 2) {
+                map[ky][kx] = 0; // Dirt zu Grass
             }
         }
     }

@@ -17,6 +17,7 @@ struct PflanzenInfo {
 };
 
 extern PflanzenInfo karotteInfo; 
+extern PflanzenInfo ErdbaereInfo;
 
 void InitWachstum();
 void UpdateWachstum();

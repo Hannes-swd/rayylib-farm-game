@@ -90,7 +90,37 @@ void DrawMap(int screenWidth, int screenHeight)
                     WHITE
                 );
 			}
-            //karotte fertig
+            //Erdbere
+            else if (map[y][x] == 6) {
+                DrawTexturePro(
+                    Erdbere1Texture,
+                    { 0,0,(float)Erdbere1Texture.width,(float)Erdbere1Texture.height },
+                    { (float)posX,(float)posY,(float)tileSize,(float)tileSize },
+                    { 0,0 },
+                    0,
+                    WHITE
+                );
+            }
+            else if (map[y][x] == 7) {
+                DrawTexturePro(
+                    Erdbere2Texture,
+                    { 0,0,(float)Erdbere2Texture.width,(float)Erdbere2Texture.height },
+                    { (float)posX,(float)posY,(float)tileSize,(float)tileSize },
+                    { 0,0 },
+                    0,
+                    WHITE
+                );
+            }
+            else if (map[y][x] == 8) {
+                DrawTexturePro(
+                    Erdbere3Texture,
+                    { 0,0,(float)Erdbere3Texture.width,(float)Erdbere3Texture.height },
+                    { (float)posX,(float)posY,(float)tileSize,(float)tileSize },
+                    { 0,0 },
+                    0,
+                    WHITE
+                );
+			}
 
             //fehler
             else {

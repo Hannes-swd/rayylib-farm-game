@@ -13,7 +13,7 @@ extern int tag;
 extern int richtung; // 0 = vorne, 1 = hinten, 2 = links, 3 = rechts
 
 // Blöcke
-constexpr int TILE_COUNT = 4;
+constexpr int TILE_COUNT = 5;
 struct Tile {
     bool begangbar;
     bool hackbar;
@@ -35,7 +35,8 @@ typedef enum {
     ITEM_hacke = 1,
     ITEM_spitzhacke = 2,
     ITEM_Stein = 3,
-	ITEM_Karrotte = 4
+	ITEM_Karrotte = 4,
+    ITEM_Erdbaere = 5
 } ItemID;
 
 // Funktionen di braucht

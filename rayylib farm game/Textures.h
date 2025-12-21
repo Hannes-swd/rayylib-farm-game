@@ -41,6 +41,7 @@ extern Texture2D KarotteItem;
 extern Texture2D ErdbaereItem;
 extern Texture2D BaumSeplingItem;
 extern Texture2D HolzItem;
+extern Texture2D AxtItem;
 
 // Funktionen
 void LoadAllTextures();

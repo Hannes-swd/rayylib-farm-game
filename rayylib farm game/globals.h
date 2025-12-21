@@ -38,7 +38,8 @@ typedef enum {
 	ITEM_Karrotte = 4,
     ITEM_Erdbaere = 5,
 	ITEM_BaumSepling = 6,
-    ITEM_HolzItem = 7
+    ITEM_HolzItem = 7,
+    ITEM_AxtItem = 8
 } ItemID;
 
 // Funktionen di braucht

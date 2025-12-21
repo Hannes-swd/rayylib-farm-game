@@ -65,18 +65,19 @@ void markierungMaus()
     // Mausklicks
     if (IsMouseButtonDown(MOUSE_BUTTON_LEFT)) {
         if (AktuellesItem == ITEM_hacke) {
+            //ERDE ZU DIRT
             if (map[ky][kx] == 0) {
                 map[ky][kx] = 2;
                 int random = 1 + rand() % 4;
                 if (random == 1) AddItem(ITEM_Stein, 1);
             }
-            // KAROTTEN ERNTEN mit Hacke
+            // KAROTTEN ERNTE
             else if (map[ky][kx] == 5) { // was es abbaut
                 map[ky][kx] = 2; // Endert zu
                 AddItem(ITEM_Karrotte, 3); // giebt 3
             }
 
-            //erdbäre
+            //ERDBERE ERNTE
             else if (map[ky][kx] == 8) { 
                 map[ky][kx] = 7;
                 int random = 1 + rand() % 4;
@@ -86,6 +87,7 @@ void markierungMaus()
             
         }
         else if (AktuellesItem == ITEM_spitzhacke) {
+            //STEIN ABBAU
             if (map[ky][kx] == 1) {
                 int steinCount = GetItemCount(ITEM_Stein);
                 int maxStack = GetMaxStack(ITEM_Stein);
@@ -95,12 +97,28 @@ void markierungMaus()
                     AddItem(ITEM_Stein, 1);
                 }
             }
+            //ERDERE ZERSTÖREN
             if (map[ky][kx] == 6 || map[ky][kx] == 7 || map[ky][kx] == 8) {
                 map[ky][kx] = 0;
 				AddItem(ITEM_Erdbaere, 1);
 			}
         }
+        else if (AktuellesItem == ITEM_AxtItem) {
+            //BAUM ABFELLEN
+            if (map[ky][kx] == 10) {
+                int Holzcount = GetItemCount(ITEM_HolzItem);
+                int maxStack = GetMaxStack(ITEM_HolzItem);
+                if (Holzcount < maxStack) {
+                    map[ky][kx] = 0;
+                    int random = 1 + rand() % 4;
+                    AddItem(ITEM_HolzItem, random);
+                    int random2 = 1 + rand() % 2;
+                    AddItem(ITEM_BaumSepling, random2);
+                }
+            }
+        }
         else if (AktuellesItem == ITEM_Stein) {
+            //STEIN PLAZIEREN
             int steinCount = GetItemCount(ITEM_Stein);
 
             if (steinCount > 0) {
@@ -110,7 +128,9 @@ void markierungMaus()
                 }
             }
         }
+        
         else if (AktuellesItem == ITEM_Karrotte) {
+            //KAROTTE ANPFKLANZEN
             int karrotteCount = GetItemCount(ITEM_Karrotte);
             if (karrotteCount > 0) {
                 if (map[ky][kx] == 2) { 
@@ -120,6 +140,7 @@ void markierungMaus()
             }
         }
         else if (AktuellesItem == ITEM_Erdbaere) {
+            //ERDBÄRE ANPFLANZEN
             int erdbaereCount = GetItemCount(ITEM_Erdbaere);
             if (erdbaereCount > 0) {
                 if (map[ky][kx] == 0) { 
@@ -129,6 +150,7 @@ void markierungMaus()
             }
 		}
         else if (AktuellesItem == ITEM_BaumSepling) {
+            //BAUM ANPFLANZEN
             int Baumseplingcount = GetItemCount(ITEM_BaumSepling);
             if (Baumseplingcount > 0) {
                 if (map[ky][kx] == 0) {
@@ -139,6 +161,7 @@ void markierungMaus()
         }
         
         else if (AktuellesItem == 0) {
+            //AKERLAND ZU GRASS
             if (map[ky][kx] == 2) {
                 map[ky][kx] = 0;
             }

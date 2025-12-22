@@ -8,6 +8,7 @@
 #include "ItemUse.h"
 #include "inventar.h"
 #include "Wachstum.h"
+#include "shop.h"
 
 int main()
 {
@@ -15,12 +16,15 @@ int main()
     InitWindow(800, 450, "Farm Game");
 
     SetTargetFPS(60);
-
+    SetExitKey(KEY_NULL);
     LoadAllTextures();
     InitWachstum();
 
+    InitMap();
+
 
     InitInventar();
+    InitShop();
     UpdateWachstum();
 
 	AddItem(ITEM_hacke, 1);
@@ -28,11 +32,12 @@ int main()
     AddItem(ITEM_AxtItem, 1);
 	//AddItem(ITEM_Karrotte, 10);
 	//AddItem(ITEM_Erdbaere, 10);
-    AddItem(ITEM_BaumSepling, 10);
+    //AddItem(ITEM_BaumSepling, 10);
     //AddItem(ITEM_HolzItem, 10);
 
     while (!WindowShouldClose())
     {
+        
         HandleMovement();
         Mausposition();
 
@@ -49,6 +54,9 @@ int main()
         inventarMangage();
 
         openinventar();
+        if (shopoffen) {
+            openShop();
+        }
 		
         UpdateWachstum();
 

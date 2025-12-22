@@ -1,5 +1,6 @@
 #include "globals.h"
 #include <cstdlib>
+#include <ctime>
 
 int map[20][25] = {
     {0} 
@@ -8,19 +9,43 @@ int map[20][25] = {
 // Spielerinformationen
 int spielerX = 1, spielerY = 1;
 int spielerLeben = 100;
-int Geld = 50;
+int Geld = 0;
 int tag = 1;
 int richtung = 0; // 0 = vorne, 1 = hinten, 2 = links, 3 = rechts
+
+void InitMap() {
+    std::srand(static_cast<unsigned int>(std::time(nullptr)));
+
+    for (int y = 0; y < 20; y++) {
+        for (int x = 0; x < 25; x++) {
+            // Gras
+            map[y][x] = 0;
+
+            
+            // 5% baum
+            if (std::rand() % 100 < 5) {
+                map[y][x] = 10;
+            }
+
+            if (x == 0 || x == 24 || y == 0 || y == 19) {
+                map[y][x] = 1;
+            }
+        }
+    }
+
+    map[spielerY][spielerX] = 0; 
+    map[1][2] = 11;
+}
 
 // Blöcke
 Tile tiles[TILE_COUNT] = {
     { true,  false, false, false}, // 0: Grass
     { false, false, false, false}, // 1: Stone
     { true,  true,  false, false},  // 2: Dirt
-	{ true, false, false, true }, // 3: karotte
-	{ true, false, false, false }, // 4: Erdbere
-	{ false, false, false, false}  // 5: Baum
-
+    { true, false, false, true }, // 3: karotte
+    { true, false, false, false }, // 4: Erdbere
+    { false, false, false, false},  // 5: Baum
+    { false, false, false, false} //6: Shop
 };
 
 // Mausposition

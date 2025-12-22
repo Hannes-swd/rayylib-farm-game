@@ -1,3 +1,4 @@
+//inventar.cpp
 #include "raylib.h"
 #include "globals.h"
 #include "Textures.h"
@@ -5,7 +6,7 @@
 
 void openinventar()
 {
-    if (IsKeyPressed(KEY_E)) {
+    if (IsKeyPressed(KEY_E) && shopoffen == false) {
         inventaroffen = !inventaroffen;
     }
 

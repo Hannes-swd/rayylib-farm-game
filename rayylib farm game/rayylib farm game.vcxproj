@@ -136,6 +136,7 @@
     <ClCompile Include="MapRender.cpp" />
     <ClCompile Include="maus.cpp" />
     <ClCompile Include="Moovment.cpp" />
+    <ClCompile Include="shop.cpp" />
     <ClCompile Include="Textures.cpp" />
     <ClCompile Include="Ui.cpp" />
     <ClCompile Include="Wachstum.cpp" />
@@ -147,6 +148,7 @@
     <ClInclude Include="MapRender.h" />
     <ClInclude Include="maus.h" />
     <ClInclude Include="Moovment.h" />
+    <ClInclude Include="shop.h" />
     <ClInclude Include="Textures.h" />
     <ClInclude Include="Ui.h" />
     <ClInclude Include="Wachstum.h" />

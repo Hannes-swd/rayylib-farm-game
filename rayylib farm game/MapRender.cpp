@@ -142,6 +142,17 @@ void DrawMap(int screenWidth, int screenHeight)
                     WHITE
                 );
 			}
+            else if (map[y][x] == 11) {
+                DrawTexturePro(
+                    shopTexture,
+                    { 0,0,(float)shopTexture.width,(float)shopTexture.height },
+                    { (float)posX,(float)posY,(float)tileSize,(float)tileSize },
+                    { 0,0 },
+                    0,
+                    WHITE
+                );
+            }
+            
 
 
             //fehler

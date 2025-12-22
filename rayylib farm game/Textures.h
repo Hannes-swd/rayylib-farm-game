@@ -6,6 +6,7 @@
 extern Texture2D grassTexture;
 extern Texture2D stoneTexture;
 extern Texture2D dirtTexture;
+extern Texture2D shopTexture;
 
 
 //pflanzen

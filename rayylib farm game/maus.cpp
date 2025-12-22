@@ -167,6 +167,10 @@ void markierungMaus()
             }
             
         }
+        if (map[ky][kx] == 11 && IsMouseButtonPressed(MOUSE_BUTTON_LEFT)) {
+            shopoffen = true;
+            inventaroffen = false; // Inventar schließen, wenn Shop öffnet
+        }
         
     }
 }

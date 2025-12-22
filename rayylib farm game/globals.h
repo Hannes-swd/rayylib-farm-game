@@ -3,6 +3,7 @@
 
 // Map
 extern int map[20][25];
+void InitMap();
 
 // Spielerinformationen
 extern int spielerX;
@@ -13,7 +14,7 @@ extern int tag;
 extern int richtung; // 0 = vorne, 1 = hinten, 2 = links, 3 = rechts
 
 // Blöcke
-constexpr int TILE_COUNT = 7;
+constexpr int TILE_COUNT = 8;
 struct Tile {
     bool begangbar;
     bool hackbar;
@@ -50,6 +51,9 @@ void RemoveItem(int id, int amount);
 
 // Inventar
 extern bool inventaroffen;
+
+extern bool shopoffen;
+
 
 constexpr int INVENTAR_ROWS = 4;
 constexpr int INVENTAR_COLS = 5;

@@ -5,6 +5,7 @@
 Texture2D grassTexture = { 0 };
 Texture2D stoneTexture = { 0 };
 Texture2D dirtTexture = { 0 };
+Texture2D shopTexture = { 0 };
 
 
 //pflanzen
@@ -50,7 +51,7 @@ void LoadAllTextures()
     grassTexture = LoadTexture("resources/grass.png");
     stoneTexture = LoadTexture("resources/stone.png");
 	dirtTexture = LoadTexture("resources/dirt.png");
-	
+	shopTexture = LoadTexture("resources/shop.png");
 
 	//pflanzen
 	Karotte1Texture = LoadTexture("resources/pflanzen/Karrotte1.png");
@@ -91,6 +92,7 @@ void UnloadAllTextures()
     UnloadTexture(grassTexture);
     UnloadTexture(stoneTexture);
 	UnloadTexture(dirtTexture);
+	UnloadTexture(shopTexture);
 	
 
 	UnloadTexture(Karotte1Texture);

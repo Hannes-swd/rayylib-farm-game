@@ -6,6 +6,8 @@ Texture2D grassTexture = { 0 };
 Texture2D stoneTexture = { 0 };
 Texture2D dirtTexture = { 0 };
 Texture2D shopTexture = { 0 };
+Texture2D tiefeErde = { 0 };
+Texture2D Wasser = { 0 };
 
 
 //pflanzen
@@ -42,6 +44,7 @@ Texture2D ErdbaereItem = { 0 };
 Texture2D BaumSeplingItem = { 0 };
 Texture2D HolzItem = { 0 };
 Texture2D AxtItem = { 0 };
+Texture2D Schaufel = { 0 };
 
 void LoadAllTextures()
 {
@@ -52,6 +55,8 @@ void LoadAllTextures()
     stoneTexture = LoadTexture("resources/stone.png");
 	dirtTexture = LoadTexture("resources/dirt.png");
 	shopTexture = LoadTexture("resources/shop.png");
+	tiefeErde = LoadTexture("resources/tiefeErde.png");
+	Wasser = LoadTexture("resources/Wasser.png");
 
 	//pflanzen
 	Karotte1Texture = LoadTexture("resources/pflanzen/Karrotte1.png");
@@ -85,6 +90,7 @@ void LoadAllTextures()
 	BaumSeplingItem = LoadTexture("resources/items/BaumSeplingItem.png");
 	HolzItem = LoadTexture("resources/items/HolzItem.png");
 	AxtItem = LoadTexture("resources/items/AxtItem.png");
+	Schaufel = LoadTexture("resources/items/Schaufel.png");
 }
 
 void UnloadAllTextures()
@@ -93,6 +99,8 @@ void UnloadAllTextures()
     UnloadTexture(stoneTexture);
 	UnloadTexture(dirtTexture);
 	UnloadTexture(shopTexture);
+	UnloadTexture(tiefeErde);
+	UnloadTexture(Wasser);
 	
 
 	UnloadTexture(Karotte1Texture);
@@ -123,5 +131,4 @@ void UnloadAllTextures()
 	UnloadTexture(BaumSeplingItem);
 	UnloadTexture(HolzItem);
 	UnloadTexture(AxtItem);
-
 }

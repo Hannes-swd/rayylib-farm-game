@@ -159,7 +159,51 @@ void markierungMaus()
                 }
             }
         }
-        
+        //schaufel graben wasser
+        else if (AktuellesItem == ITEM_Schaufel) {
+            if (map[ky][kx] == 0 || map[ky][kx] == 2) {
+                bool wasserGefunden = false;
+
+                // Prüfe 4 Richtungen auf Wasser
+                int dy[] = { -1, 1, 0, 0 };
+                int dx[] = { 0, 0, -1, 1 };
+
+                for (int i = 0; i < 4; i++) {
+                    int ny = ky + dy[i];
+                    int nx = kx + dx[i];
+                    if (ny >= 0 && ny < MAP_H && nx >= 0 && nx < MAP_W && map[ny][nx] == 13) {
+                        wasserGefunden = true;
+                        break;
+                    }
+                }
+
+                if (wasserGefunden) {
+                    map[ky][kx] = 13;
+
+                    bool neuWasser;
+                    do {
+                        neuWasser = false;
+                        for (int y = 0; y < MAP_H; y++) {
+                            for (int x = 0; x < MAP_W; x++) {
+                                if (map[y][x] == 13) {
+                                    for (int i = 0; i < 4; i++) {
+                                        int ny = y + dy[i];
+                                        int nx = x + dx[i];
+                                        if (ny >= 0 && ny < MAP_H && nx >= 0 && nx < MAP_W && map[ny][nx] == 12) {
+                                            map[ny][nx] = 13;
+                                            neuWasser = true;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    } while (neuWasser);
+                }
+                else {
+                    map[ky][kx] = 12;
+                }
+            }
+        }
         else if (AktuellesItem == 0) {
             //AKERLAND ZU GRASS
             if (map[ky][kx] == 2) {

@@ -9,7 +9,7 @@ int map[20][25] = {
 // Spielerinformationen
 int spielerX = 1, spielerY = 1;
 int spielerLeben = 100;
-int Geld = 0;
+int Geld = 100;
 int tag = 1;
 int richtung = 0; // 0 = vorne, 1 = hinten, 2 = links, 3 = rechts
 
@@ -35,17 +35,39 @@ void InitMap() {
 
     map[spielerY][spielerX] = 0; 
     map[1][2] = 11;
+    map[4][4] = 13;
 }
 
 // Blöcke
-Tile tiles[TILE_COUNT] = {
-    { true,  false, false, false}, // 0: Grass
-    { false, false, false, false}, // 1: Stone
-    { true,  true,  false, false},  // 2: Dirt
-    { true, false, false, true }, // 3: karotte
-    { true, false, false, false }, // 4: Erdbere
-    { false, false, false, false},  // 5: Baum
-    { false, false, false, false} //6: Shop
+Tile tiles[14] = {  // Erweitere auf 14, da du Block-IDs bis 13 hast
+    // 0: Grass
+    { true,  false, false, false},
+    // 1: Stone
+    { false, false, false, false},
+    // 2: Dirt
+    { true,  true,  false, false},
+    // 3: Karotte1 (erstes Stadium)
+    { true, false, false, true },
+    // 4: Karotte2 (zweites Stadium)
+    { true, false, false, false },
+    // 5: Karotte3 (drittes Stadium)
+    { true, false, false, false },
+    // 6: Erdbere1 (erstes Stadium)
+    { true, false, false, false },
+    // 7: Erdbere2 (zweites Stadium)
+    { false, false, false, false },
+    // 8: Erdbere3 (drittes Stadium)
+    { false, false, false, false },
+    // 9: Baum2 (zweites Stadium)
+    { false, false, false, false },
+    // 10: Baum1 (erstes Stadium)
+    { false, false, false, false },
+    // 11: Shop
+    { false, false, false, false },
+    // 12: tiefe Erde
+    { false, false, false, false },
+    // 13: Wasser
+    { true, false, false, false }
 };
 
 // Mausposition
@@ -68,8 +90,10 @@ int GetMaxStack(int id) {
     case ITEM_hacke: return 1;
     case ITEM_spitzhacke: return 1;
     case ITEM_AxtItem: return 1;
+    case ITEM_Schaufel: return 1;
     case ITEM_Stein: return 99;
     case ITEM_HolzItem: return 99;
+    
     
 
     //Pflanzen

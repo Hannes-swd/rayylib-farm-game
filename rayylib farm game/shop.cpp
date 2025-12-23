@@ -19,7 +19,7 @@ bool shopKannScrollen = false;
 struct ShopItem {
     int itemID;
     int menge;
-    int preis;  // Geld
+    int preis;
     string beschreibung;
     bool istVerkauf;  // true = Verkauf, false = Kauf
 };
@@ -73,7 +73,6 @@ void InitShop() {
 
 void openShop() {
     if (shopoffen) {
-        // E-Taste zum Schließen
         if (IsKeyPressed(KEY_E)) {
             shopoffen = false;
             ausgewaehltesShopItem = -1;
@@ -89,7 +88,7 @@ void DrawShopUI() {
     int sw = GetScreenWidth();
     int sh = GetScreenHeight();
 
-    // Shop-Fenster-Größe
+    // Fenster-Größe
     float shopWidth = sw * 0.85f;
     float shopHeight = sh * 0.9f;
     float shopX = sw / 2.0f - shopWidth / 2.0f;
@@ -103,7 +102,28 @@ void DrawShopUI() {
     DrawText("SHOP", shopX + 30, shopY + 25, 40, Color{ 100, 200, 255, 255 });
 
     // Geld anzeigen
-    DrawText(TextFormat("Gold: %d", Geld), shopX + shopWidth - 250, shopY + 25, 28, Color{ 255, 215, 0, 255 });
+    float geldIconSize = 24.0f;
+    float geldTextX = shopX + shopWidth - 250;
+
+    // Zeichne das Geld-Icon
+    if (GeldIcon.id != 0) {
+        DrawTexturePro(
+            GeldIcon,
+            { 0, 0, (float)GeldIcon.width, (float)GeldIcon.height },
+            { geldTextX, shopY + 25, geldIconSize, geldIconSize },
+            { 0, 0 }, 0, WHITE
+        );
+    }
+
+    // Zeichne den Geldbetrag rechts neben dem Icon
+    DrawText(
+        TextFormat("%d", Geld),
+        geldTextX + geldIconSize + 10, // Etwas Abstand zum Icon
+        shopY + 25,
+        28,
+        Color{ 255, 215, 0, 255 }
+    );
+
 
     // Tab-Buttons
     float tabY = shopY + 80;

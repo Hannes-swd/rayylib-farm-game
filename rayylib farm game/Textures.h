@@ -7,6 +7,8 @@ extern Texture2D grassTexture;
 extern Texture2D stoneTexture;
 extern Texture2D dirtTexture;
 extern Texture2D shopTexture;
+extern Texture2D tiefeErde;
+extern Texture2D Wasser;
 
 
 //pflanzen
@@ -43,6 +45,7 @@ extern Texture2D ErdbaereItem;
 extern Texture2D BaumSeplingItem;
 extern Texture2D HolzItem;
 extern Texture2D AxtItem;
+extern Texture2D Schaufel;
 
 // Funktionen
 void LoadAllTextures();

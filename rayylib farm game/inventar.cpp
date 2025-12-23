@@ -57,6 +57,7 @@ void openinventar()
                     switch (itemID) {
                     case ITEM_hacke: itemTex = HackeItem; break;
                     case ITEM_spitzhacke: itemTex = spitzhackeItem; break;
+                    case ITEM_Schaufel: itemTex = Schaufel; break;
                     case ITEM_Stein: itemTex = steinItem; break;
 					case ITEM_Karrotte: itemTex = KarotteItem; break;
 					case ITEM_Erdbaere: itemTex = ErdbaereItem; break;
@@ -133,6 +134,7 @@ void openinventar()
                 switch (itemID) {
                 case ITEM_hacke: itemTex = HackeItem; break;
                 case ITEM_spitzhacke: itemTex = spitzhackeItem; break;
+                case ITEM_Schaufel: itemTex = Schaufel; break;
                 case ITEM_Stein: itemTex = steinItem; break;
 				case ITEM_Karrotte: itemTex = KarotteItem; break;
 				case ITEM_Erdbaere: itemTex = ErdbaereItem; break;
@@ -187,6 +189,7 @@ void openinventar()
                 switch (itemID) {
                 case ITEM_hacke: itemTex = HackeItem; break;
                 case ITEM_spitzhacke: itemTex = spitzhackeItem; break;
+                case ITEM_Schaufel: itemTex = Schaufel; break;
                 case ITEM_Stein: itemTex = steinItem; break;
 				case ITEM_Karrotte: itemTex = KarotteItem; break;
 				case ITEM_Erdbaere: itemTex = ErdbaereItem; break;

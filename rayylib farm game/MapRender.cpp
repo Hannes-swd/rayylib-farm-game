@@ -152,7 +152,26 @@ void DrawMap(int screenWidth, int screenHeight)
                     WHITE
                 );
             }
-            
+            else if (map[y][x] == 12) {
+                DrawTexturePro(
+                    tiefeErde,
+                    { 0,0,(float)tiefeErde.width,(float)tiefeErde.height },
+                    { (float)posX,(float)posY,(float)tileSize,(float)tileSize },
+                    { 0,0 },
+                    0,
+                    WHITE
+                );
+            }
+            else if (map[y][x] == 13) {
+                DrawTexturePro(
+                    Wasser,
+                    { 0,0,(float)Wasser.width,(float)Wasser.height },
+                    { (float)posX,(float)posY,(float)tileSize,(float)tileSize },
+                    { 0,0 },
+                    0,
+                    WHITE
+                );
+                }
 
 
             //fehler

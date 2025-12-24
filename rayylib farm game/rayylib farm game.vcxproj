@@ -134,6 +134,7 @@
     <ClCompile Include="ItemUse.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="MapRender.cpp" />
+    <ClCompile Include="marmelade.cpp" />
     <ClCompile Include="maus.cpp" />
     <ClCompile Include="Moovment.cpp" />
     <ClCompile Include="shop.cpp" />
@@ -146,6 +147,7 @@
     <ClInclude Include="inventar.h" />
     <ClInclude Include="ItemUse.h" />
     <ClInclude Include="MapRender.h" />
+    <ClInclude Include="marmelade.h" />
     <ClInclude Include="maus.h" />
     <ClInclude Include="Moovment.h" />
     <ClInclude Include="shop.h" />

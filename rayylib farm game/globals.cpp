@@ -88,6 +88,8 @@ int inventarMenge[INVENTAR_SLOTS] = { 0 };
 int dragSlot = -1;
 bool isDragging = false;
 
+bool MarmeladeMachen = true;
+
 int GetMaxStack(int id) {
     switch (id) {
     case ITEM_hacke: return 1;
@@ -97,6 +99,7 @@ int GetMaxStack(int id) {
     case ITEM_Stein: return 99;
     case ITEM_HolzItem: return 99;
     case ITEM_dirt: return 99;
+    case ITEM_ErdbärMarmelade: return 99;
     
     
 

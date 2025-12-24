@@ -36,6 +36,7 @@ int main()
 	//AddItem(ITEM_Erdbaere, 10);
     //AddItem(ITEM_BaumSepling, 10);
     //AddItem(ITEM_HolzItem, 10);
+    AddItem(ITEM_ErdbärMarmelade, 1);
 
     while (!WindowShouldClose())
     {

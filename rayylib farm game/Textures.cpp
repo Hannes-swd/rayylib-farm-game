@@ -37,6 +37,7 @@ Texture2D InventarSlot = { 0 };
 Texture2D HerzIcon = { 0 };
 Texture2D GeldIcon = { 0 };
 Texture2D AusgewaelterSlot = { 0 };
+Texture2D ausrufezeichen = { 0 };
 
 //items
 Texture2D HackeItem = { 0 };
@@ -49,6 +50,7 @@ Texture2D HolzItem = { 0 };
 Texture2D AxtItem = { 0 };
 Texture2D Schaufel = { 0 };
 Texture2D dirtItem = { 0 };
+Texture2D ErdbärMarmelade = { 0 };
 
 void LoadAllTextures()
 {
@@ -87,6 +89,7 @@ void LoadAllTextures()
 	HerzIcon = LoadTexture("resources/Ui/Hart.png");
 	GeldIcon = LoadTexture("resources/Ui/Geld.png");
 	AusgewaelterSlot = LoadTexture("resources/Ui/AusgewälterSlot.png");
+	ausrufezeichen = LoadTexture("resources/Ui/ausrufezeichen.png");
 
 	//items
 	HackeItem = LoadTexture("resources/items/hacke.png");
@@ -99,6 +102,7 @@ void LoadAllTextures()
 	AxtItem = LoadTexture("resources/items/AxtItem.png");
 	Schaufel = LoadTexture("resources/items/Schaufel.png");
 	dirtItem = LoadTexture("resources/items/dirtItem.png");
+	ErdbärMarmelade = LoadTexture("resources/items/ErdbärMarmelade.png");
 }
 
 void UnloadAllTextures()
@@ -132,6 +136,7 @@ void UnloadAllTextures()
 	UnloadTexture(HerzIcon);
 	UnloadTexture(GeldIcon);
 	UnloadTexture(AusgewaelterSlot);
+	UnloadTexture(ausrufezeichen);
 
 	UnloadTexture(HackeItem);
 	UnloadTexture(spitzhackeItem);
@@ -142,4 +147,5 @@ void UnloadAllTextures()
 	UnloadTexture(HolzItem);
 	UnloadTexture(AxtItem);
 	UnloadTexture(dirtItem);
+	UnloadTexture(ErdbärMarmelade);
 }

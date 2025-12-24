@@ -4,6 +4,7 @@
 #include "globals.h"
 #include "Textures.h"
 #include "ItemUse.h"
+#include "marmelade.h"
 
 constexpr int MAP_W = 25;
 constexpr int MAP_H = 20;
@@ -140,12 +141,17 @@ void markierungMaus()
             }
         }
         else if (AktuellesItem == ITEM_Erdbaere) {
-            //ERDBÄRE ANPFLANZEN
+            //ERDBÄRE ANPFLANZEN && IN MARMELADE VERWANDELN
             int erdbaereCount = GetItemCount(ITEM_Erdbaere);
             if (erdbaereCount > 0) {
                 if (map[ky][kx] == 0) { 
                     map[ky][kx] = 6; 
                     RemoveItem(ITEM_Erdbaere, 1);
+                }
+                else if (map[ky][kx] == 14) {
+                    if (MarmeladeMachen) {
+                        marmelade(ITEM_Erdbaere, 1);
+                    }
                 }
             }
 		}

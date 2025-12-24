@@ -38,6 +38,7 @@ extern Texture2D InventarSlot;
 extern Texture2D HerzIcon;
 extern Texture2D GeldIcon;
 extern Texture2D AusgewaelterSlot;
+extern Texture2D ausrufezeichen;
 
 //items
 extern Texture2D HackeItem;
@@ -50,6 +51,7 @@ extern Texture2D HolzItem;
 extern Texture2D AxtItem;
 extern Texture2D Schaufel;
 extern Texture2D dirtItem;
+extern Texture2D ErdbärMarmelade;
 
 // Funktionen
 void LoadAllTextures();

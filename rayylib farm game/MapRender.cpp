@@ -171,7 +171,18 @@ void DrawMap(int screenWidth, int screenHeight)
                     0,
                     WHITE
                 );
-                }
+            }
+            else if (map[y][x] == 14) {
+                
+                DrawTexturePro(
+                    marmeladenTopf,
+                    { 0,0,(float)marmeladenTopf.width,(float)marmeladenTopf.height },
+                    { (float)posX,(float)posY,(float)tileSize,(float)tileSize },
+                    { 0,0 },
+                    0,
+                    WHITE
+                );
+            }
 
 
             //fehler

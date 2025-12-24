@@ -14,7 +14,7 @@ extern int tag;
 extern int richtung; // 0 = vorne, 1 = hinten, 2 = links, 3 = rechts
 
 // Blöcke
-constexpr int TILE_COUNT = 14;
+constexpr int TILE_COUNT = 15;
 struct Tile {
     bool begangbar;
     bool hackbar;

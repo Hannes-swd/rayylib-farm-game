@@ -36,10 +36,11 @@ void InitMap() {
     map[spielerY][spielerX] = 0; 
     map[1][2] = 11;
     map[4][4] = 13;
+    map[5][4] = 14;
 }
 
 // Blöcke
-Tile tiles[14] = {  // Erweitere auf 14, da du Block-IDs bis 13 hast
+Tile tiles[15] = {  // Erweitere auf 14, da du Block-IDs bis 13 hast
     // 0: Grass
     { true,  false, false, false},
     // 1: Stone
@@ -67,7 +68,9 @@ Tile tiles[14] = {  // Erweitere auf 14, da du Block-IDs bis 13 hast
     // 12: tiefe Erde
     { false, false, false, false },
     // 13: Wasser
-    { true, false, false, false }
+    { true, false, false, false },
+    // 14: marmeladenTopf
+    { false, false, false, false }
 };
 
 // Mausposition

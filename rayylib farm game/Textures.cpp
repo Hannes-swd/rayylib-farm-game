@@ -9,6 +9,9 @@ Texture2D shopTexture = { 0 };
 Texture2D tiefeErde = { 0 };
 Texture2D Wasser = { 0 };
 
+//maschienen
+Texture2D marmeladenTopf = { 0 };
+
 
 //pflanzen
 Texture2D Karotte1Texture = { 0 };
@@ -59,6 +62,9 @@ void LoadAllTextures()
 	tiefeErde = LoadTexture("resources/tiefeErde.png");
 	Wasser = LoadTexture("resources/Wasser.png");
 
+	//maschienen
+	marmeladenTopf = LoadTexture("resources/marmeladenTopf.png");
+
 	//pflanzen
 	Karotte1Texture = LoadTexture("resources/pflanzen/Karrotte1.png");
 	Karotte2Texture = LoadTexture("resources/pflanzen/Karrotte2.png");
@@ -103,6 +109,8 @@ void UnloadAllTextures()
 	UnloadTexture(shopTexture);
 	UnloadTexture(tiefeErde);
 	UnloadTexture(Wasser);
+
+	UnloadTexture(marmeladenTopf);
 	
 
 	UnloadTexture(Karotte1Texture);
@@ -112,7 +120,7 @@ void UnloadAllTextures()
 	UnloadTexture(Erdbere2Texture);
 	UnloadTexture(Erdbere3Texture);
 	UnloadTexture(Baum1Texture);
-	UnloadTexture(Baum1Texture);
+	UnloadTexture(Baum2Texture);
 
     UnloadTexture(SpielerVorne);
     UnloadTexture(SpielerHinten);

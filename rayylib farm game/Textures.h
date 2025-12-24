@@ -10,6 +10,9 @@ extern Texture2D shopTexture;
 extern Texture2D tiefeErde;
 extern Texture2D Wasser;
 
+//maschienen
+extern Texture2D marmeladenTopf;
+
 
 //pflanzen
 extern Texture2D Karotte1Texture;

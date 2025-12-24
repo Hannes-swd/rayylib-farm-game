@@ -93,6 +93,7 @@ int GetMaxStack(int id) {
     case ITEM_Schaufel: return 1;
     case ITEM_Stein: return 99;
     case ITEM_HolzItem: return 99;
+    case ITEM_dirt: return 99;
     
     
 
@@ -200,4 +201,24 @@ void InitInventar() {
         inventar[i] = 0;
         inventarMenge[i] = 0;
     }
+}
+
+
+constexpr int MAP_W = 25;
+constexpr int MAP_H = 20;
+
+bool IsNextToWater(int x, int y) {
+    int dx[] = { -1, 1, 0, 0 };
+    int dy[] = { 0, 0, -1, 1 };
+
+    for (int i = 0; i < 4; i++) {
+        int nx = x + dx[i];
+        int ny = y + dy[i];
+        if (nx >= 0 && nx < MAP_W && ny >= 0 && ny < MAP_H) {
+            if (map[ny][nx] == 13) { 
+                return true;
+            }
+        }
+    }
+    return false;
 }

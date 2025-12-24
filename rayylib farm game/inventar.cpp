@@ -64,6 +64,7 @@ void openinventar()
 					case ITEM_BaumSepling: itemTex = BaumSeplingItem; break;
                     case ITEM_HolzItem: itemTex = HolzItem; break;
                     case ITEM_AxtItem: itemTex = AxtItem; break;
+                    case ITEM_dirt: itemTex = dirtItem; break;
                     }
                     DrawTexturePro(itemTex,
                         { 0,0,(float)itemTex.width,(float)itemTex.height },
@@ -141,6 +142,7 @@ void openinventar()
 				case ITEM_BaumSepling: itemTex = BaumSeplingItem; break;
                 case ITEM_HolzItem: itemTex = HolzItem; break;
                 case ITEM_AxtItem: itemTex = AxtItem; break;
+                case ITEM_dirt: itemTex = dirtItem; break;
                 }
                 Vector2 mouse = GetMousePosition();
                 DrawTexturePro(itemTex,
@@ -196,6 +198,7 @@ void openinventar()
 				case ITEM_BaumSepling: itemTex = BaumSeplingItem; break;
                 case ITEM_HolzItem: itemTex = HolzItem; break;
                 case ITEM_AxtItem: itemTex = AxtItem; break;
+                case ITEM_dirt: itemTex = dirtItem; break;
                 }
                 DrawTexturePro(itemTex,
                     { 0,0,(float)itemTex.width,(float)itemTex.height },

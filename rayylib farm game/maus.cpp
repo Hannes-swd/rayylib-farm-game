@@ -162,6 +162,7 @@ void markierungMaus()
         //schaufel graben wasser
         else if (AktuellesItem == ITEM_Schaufel) {
             if (map[ky][kx] == 0 || map[ky][kx] == 2) {
+                AddItem(ITEM_dirt, 1);
                 bool wasserGefunden = false;
 
                 // Prüfe 4 Richtungen auf Wasser
@@ -201,6 +202,16 @@ void markierungMaus()
                 }
                 else {
                     map[ky][kx] = 12;
+                }
+            }
+        }
+        //löcher füllen
+        else if (AktuellesItem == ITEM_dirt) {
+            if (map[ky][kx] == 12 || map[ky][kx] == 13) {
+                int dirtCount = GetItemCount(ITEM_dirt);
+                if (dirtCount > 0) {
+                    RemoveItem(ITEM_dirt, 1);
+                    map[ky][kx] = 0;
                 }
             }
         }

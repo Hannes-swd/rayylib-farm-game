@@ -46,6 +46,7 @@ extern Texture2D BaumSeplingItem;
 extern Texture2D HolzItem;
 extern Texture2D AxtItem;
 extern Texture2D Schaufel;
+extern Texture2D dirtItem;
 
 // Funktionen
 void LoadAllTextures();

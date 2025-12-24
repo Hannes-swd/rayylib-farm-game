@@ -45,6 +45,7 @@ Texture2D BaumSeplingItem = { 0 };
 Texture2D HolzItem = { 0 };
 Texture2D AxtItem = { 0 };
 Texture2D Schaufel = { 0 };
+Texture2D dirtItem = { 0 };
 
 void LoadAllTextures()
 {
@@ -91,6 +92,7 @@ void LoadAllTextures()
 	HolzItem = LoadTexture("resources/items/HolzItem.png");
 	AxtItem = LoadTexture("resources/items/AxtItem.png");
 	Schaufel = LoadTexture("resources/items/Schaufel.png");
+	dirtItem = LoadTexture("resources/items/dirtItem.png");
 }
 
 void UnloadAllTextures()
@@ -131,4 +133,5 @@ void UnloadAllTextures()
 	UnloadTexture(BaumSeplingItem);
 	UnloadTexture(HolzItem);
 	UnloadTexture(AxtItem);
+	UnloadTexture(dirtItem);
 }

@@ -79,8 +79,15 @@ void UpdateWachstum() {
                 if (blockID >= karotteInfo.startID &&
                     blockID < karotteInfo.startID + karotteInfo.maxWachstum - 1) {
 
+                    float wachstumsChance = karotteInfo.wachstumsChance;
+
+                    // Wenn neben Wasser: doppelte Wachstumschance
+                    if (IsNextToWater(x, y)) {
+                        wachstumsChance *= 2.0f; // Doppelt so schnell
+                    }
+
                     float randomValue = (float)rand() / (float)RAND_MAX;
-                    if (randomValue <= karotteInfo.wachstumsChance) {
+                    if (randomValue <= wachstumsChance) {
                         map[y][x] = blockID + 1;
                     }
                 }
@@ -88,7 +95,7 @@ void UpdateWachstum() {
         }
     }
 
-    // Erdbeeren-Wachstum
+    // Erdbeeren-Wachstum (analog)
     erdbeerenTimer += deltaTime * ErdbaereInfo.wachstumsFaktor;
     if (erdbeerenTimer >= ErdbaereInfo.basisIntervall) {
         erdbeerenTimer = 0.0f;
@@ -100,8 +107,14 @@ void UpdateWachstum() {
                 if (blockID >= ErdbaereInfo.startID &&
                     blockID < ErdbaereInfo.startID + ErdbaereInfo.maxWachstum - 1) {
 
+                    float wachstumsChance = ErdbaereInfo.wachstumsChance;
+
+                    if (IsNextToWater(x, y)) {
+                        wachstumsChance *= 2.0f;
+                    }
+
                     float randomValue = (float)rand() / (float)RAND_MAX;
-                    if (randomValue <= ErdbaereInfo.wachstumsChance) {
+                    if (randomValue <= wachstumsChance) {
                         map[y][x] = blockID + 1;
                     }
                 }
@@ -109,7 +122,7 @@ void UpdateWachstum() {
         }
     }
 
-    // Baum-Wachstum
+    // Baum-Wachstum (analog)
     baumTimer += deltaTime * BaumInfo.wachstumsFaktor;
     if (baumTimer >= BaumInfo.basisIntervall) {
         baumTimer = 0.0f;
@@ -121,8 +134,14 @@ void UpdateWachstum() {
                 if (blockID >= BaumInfo.startID &&
                     blockID < BaumInfo.startID + BaumInfo.maxWachstum - 1) {
 
+                    float wachstumsChance = BaumInfo.wachstumsChance;
+
+                    if (IsNextToWater(x, y)) {
+                        wachstumsChance *= 2.0f;
+                    }
+
                     float randomValue = (float)rand() / (float)RAND_MAX;
-                    if (randomValue <= BaumInfo.wachstumsChance) {
+                    if (randomValue <= wachstumsChance) {
                         map[y][x] = blockID + 1;
                     }
                 }

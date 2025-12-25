@@ -150,7 +150,7 @@ void markierungMaus()
                 }
                 else if (map[ky][kx] == 14) {
                     if (MarmeladeMachen) {
-                        marmelade(ITEM_Erdbaere, 1);
+                        marmelade(ITEM_Erdbaere, 1, kx, ky);
                     }
                 }
             }
